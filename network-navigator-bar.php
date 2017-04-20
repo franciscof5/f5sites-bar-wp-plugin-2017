@@ -6,17 +6,45 @@ Plugin Author: Francisco Matelli Matulovic
 Author URI: www.franciscomat.com/wordpress
 Tags: mu-plugins, */
 
+
 add_action("wp_footer", "mnib_activate");
 
 function mnib_activate() {
-	$active_links = array("grupof.com.br", "f5sites.com", "franciscomat.com", "pomodoros.com.br", "itapemapa.com.br", "redemapas.com.br", "focalizador.com.br", "projectimer.com", "ondeabrir.com.br", "cursowp.com.br", "treinamentoemfoco.com.br", "qrlink.com.br", "editoradeblogs.com.br");
-	$a_style = 'style="color:#FFF;font-family: Open Sans,sans-serif;text-decoration:none;"';
-	$div_style = 'style="background: #006599 !important;color:#FFF;font-family: Open Sans,sans-serif;z-index:9999;font-size: 10px;padding-top:5px;"';
-	echo "<div ${div_style}'>"; 
-	echo "F5 Sites Network ";
-	foreach ($active_links as $link) :
-		echo " | <a href=http://$link ${a_style}>$link</a>";
-	endforeach;
+	#DOMAIN GROUPS
+	$most_mature = array("www.grupof.com.br", "www.f5sites.com", "br.f5sites.com", "www.franciscomat.com");
+	$under_development = array("www.pomodoros.com.br", "www.itapemapa.com.br", "www.redemapas.com.br", "pesquisa.grupof.com.br", "www.cursowp.com.br");
+	$in_project = array("www.focalizador.com.br", "www.projectimer.com", "www.ondeabrir.com.br", "www.treinamentoemfoco.com.br", "www.qrlink.com.br", "www.editoradeblogs.com.br");
+	
+	#STYLES	
+	$div_style = 'style="background: #006599 !important;color:#CCC;font-family: Open Sans,sans-serif;z-index:9999;font-size: 10px;padding-top:5px;font-weight:600;"';
+	
+	#improvisation
+	$sn=$_SERVER['HTTP_HOST'];
+	#if($sn=="www.franciscomat.com")
+	#$div_style = 'style="background: #006599 !important;color:#CCC;font-family: Open Sans,sans-serif;z-index:9999;font-size: 10px;padding-top:5px;font-weight:600;margin-left:30%"';
+	
+	
+	#GENERATE VIEW
+	echo "<div ${div_style}>"; 
+	echo "F5 Sites Network: ";
+	fore($most_mature);
+	echo " Under Development: ";
+	fore($under_development);
+	if(current_user_can('administrator')) {
+		echo " In project: ";
+		fore($in_project);
+	}
+	#$active_links = array_merge($most_mature, $under_development);
+	echo "</div>";
 	echo "</p>";
+}
+function fore($whatar) {
+	#STYLES	
+	$a_style = 'style="color:#222;font-family: Open Sans,sans-serif;text-decoration:none;"';
+	foreach ($whatar as $link) :
+		$domain_parts = explode('.', $link);
+		$linksw = ($domain_parts[0] == "www") ? $domain_parts[1] : $domain_parts[0];
+		echo "<a href=http://$link ${a_style}>".$linksw." |</a>  ";
+	endforeach;
 }
 ?>
