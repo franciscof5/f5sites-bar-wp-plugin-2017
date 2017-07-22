@@ -1,5 +1,5 @@
 {
-	"name": "f5sites/network-navigator-bar",
+	"name": "f5sites/f5sites-footer-bar",
 	"description": "Just put it on mu-plugins of each wpmu install and configure e style it editing the single file php code, made to be simple and for programmers (old multi-network-integrated-bar). WordPress F5 Sites DEV projects.",
 	"type": "wordpress-plugin",
 	"authors": [
