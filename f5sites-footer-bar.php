@@ -15,7 +15,7 @@ function mnib_activate() {
 	$most_mature = array("www.grupof.com.br", "www.f5sites.com", "br.f5sites.com", "www.franciscomat.com");
 	$under_development = array("www.pomodoros.com.br", "www.itapemapa.com.br", "hortical.f5sites.com", "www.cursowp.com.br" );
 	#$in_project = array("www.focalizador.com.br", "www.projectimer.com", "www.ondeabrir.com.br", "www.treinamentoemfoco.com.br", "www.qrlink.com.br", "www.editoradeblogs.com.br");
-	$in_project=array("www.redemapas.com.br", "pesquisa.grupof.com.br");
+	$in_project=array("pensamentos.franciscomat.com", "www.redemapas.com.br", "pesquisa.grupof.com.br");
 	
 	#improvisation
 	$sn=$_SERVER['HTTP_HOST'];
