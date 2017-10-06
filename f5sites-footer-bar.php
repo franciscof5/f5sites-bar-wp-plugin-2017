@@ -12,10 +12,10 @@ add_action("wp_footer", "mnib_activate");
 
 function mnib_activate() {
 	#DOMAIN GROUPS
-	$most_mature = array("www.f5sites.com", "br.f5sites.com", "www.franciscomat.com");
-	$under_development = array("www.pomodoros.com.br", "www.itapemapa.com.br", "hortical.f5sites.com", "www.cursowp.com.br" );
+	$most_mature = array("www.f5sites.com", "br.f5sites.com", "www.franciscomat.com", "br.franciscomat.com");
+	$under_development = array("www.focalizador.com.br", "www.pomodoros.com.br", "www.itapemapa.com.br", "hortical.f5sites.com", "www.cursowp.com.br" );
 	#$in_project = array("www.focalizador.com.br", "www.projectimer.com", "www.ondeabrir.com.br", "www.treinamentoemfoco.com.br", "www.qrlink.com.br", "www.editoradeblogs.com.br");
-	$in_project=array("www.grupof.com.br", "pensamentos.franciscomat.com", "www.redemapas.com.br", "pesquisa.grupof.com.br");
+	$in_project=array("www.grupof.com.br", "pensamentos.franciscomat.com", "portfolio.franciscomat.com", "pesquisa.franciscomat.com", "ideias.franciscomat.com", "www.redemapas.com.br", "pesquisa.grupof.com.br");
 	
 	#improvisation
 	$sn=$_SERVER['HTTP_HOST'];
