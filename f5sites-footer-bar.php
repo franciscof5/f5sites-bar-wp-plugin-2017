@@ -13,10 +13,9 @@ add_action("wp_footer", "mnib_activate");
 function mnib_activate() {
 	#DOMAIN GROUPS
 	$most_mature = array("www.f5sites.com", "br.f5sites.com", "www.franciscomat.com", "br.franciscomat.com");
-	$under_development = array("www.focalizador.com.br", "www.pomodoros.com.br", "www.itapemapa.com.br", "hortical.f5sites.com", "www.cursowp.com.br" );
-	#$in_project = array("www.focalizador.com.br", "www.projectimer.com", "www.ondeabrir.com.br", "www.treinamentoemfoco.com.br", "www.qrlink.com.br", "www.editoradeblogs.com.br");
-	$in_project=array("www.grupof.com.br", "pensamentos.franciscomat.com", "portfolio.franciscomat.com", "pesquisa.franciscomat.com", "ideias.franciscomat.com", "www.redemapas.com.br", "pesquisa.grupof.com.br");
-	
+	$under_development = array("www.lojasdomago.com.br", "www.focalizador.com.br", "www.pomodoros.com.br", "www.itapemapa.com.br", "hortical.f5sites.com", "www.cursowp.com.br" );
+	$in_project=array("www.projectimer.com", "www.treinamentoemfoco.com.br", "www.redemapas.com.br", "www.epizzaria.com.br", "SUBSITES", "pensamentos.franciscomat.com", "portfolio.franciscomat.com", "pesquisa.franciscomat.com", "ideias.franciscomat.com");
+	$archived=array("www.grupof.com.br" , "pesquisa.grupof.com.br", "www.qrlink.com.br", "www.editoradeblogs.com.br", "www.ondeabrir.com.br", "www.contratador.com.br");
 	#improvisation
 	$sn=$_SERVER['HTTP_HOST'];
 	#if($sn=="www.franciscomat.com")
@@ -30,8 +29,12 @@ function mnib_activate() {
 	echo " Under Development: ";
 	fore($under_development);
 	if(current_user_can('administrator')) {
+		echo "<hr />";
 		echo " In project: ";
 		fore($in_project);
+		echo "<br />";
+		echo " Archive: ";
+		fore($archived);
 	}
 	#$active_links = array_merge($most_mature, $under_development);
 	echo "</div>";
