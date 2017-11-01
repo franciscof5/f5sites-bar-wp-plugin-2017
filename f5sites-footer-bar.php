@@ -12,7 +12,7 @@ add_action("wp_footer", "mnib_activate");
 
 function mnib_activate() {
 	#DOMAIN GROUPS
-	$most_mature = array("www.f5sites.com", "br.f5sites.com", "www.franciscomat.com", "br.franciscomat.com");
+	$most_mature = array("www.f5sites.com", "projects.f5sites.com", "br.f5sites.com", "www.franciscomat.com", "br.franciscomat.com");
 	$under_development = array("www.lojasdomago.com.br", "www.focalizador.com.br", "www.pomodoros.com.br", "www.itapemapa.com.br", "hortical.f5sites.com", "www.cursowp.com.br" );
 	$in_project=array("www.projectimer.com", "www.treinamentoemfoco.com.br", "www.redemapas.com.br", "www.epizzaria.com.br", "SUBSITES", "pensamentos.franciscomat.com", "portfolio.franciscomat.com", "pesquisa.franciscomat.com", "ideias.franciscomat.com");
 	$archived=array("www.grupof.com.br" , "pesquisa.grupof.com.br", "www.qrlink.com.br", "www.editoradeblogs.com.br", "www.ondeabrir.com.br", "www.contratador.com.br");
@@ -20,14 +20,19 @@ function mnib_activate() {
 	$sn=$_SERVER['HTTP_HOST'];
 	#if($sn=="www.franciscomat.com")
 	#$div_style = 'style="background: #006599 !important;color:#CCC;font-family: Open Sans,sans-serif;z-index:9999;font-size: 10px;padding-top:5px;font-weight:600;margin-left:30%"';
-	
+	$startups_global = array("www.f5sites.com", "projects.f5sites.com", "www.franciscomat.com");
+	$startups_brasil = array("br.f5sites.com", "br.franciscomat.com", "www.lojasdomago.com.br", "www.focalizador.com.br", "www.pomodoros.com.br", "www.itapemapa.com.br", "hortical.f5sites.com", "www.cursowp.com.br" );
 	
 	#GENERATE VIEW
 	echo "<div style='background: #006599 !important;color:#CCC;font-family: Open Sans,sans-serif;z-index:9999;font-size: 12px;padding-top:5px;font-weight:600;line-height:30px;position:relative;'>"; 
-	echo "F5 Sites Network: ";
-	fore($most_mature);
-	echo " Under Development: ";
-	fore($under_development);
+	#echo "F5 Sites Network: ";
+	#fore($most_mature);
+	#echo " Under Development: ";
+	#fore($under_development);
+	echo "Global Startups: ";
+	fore($startups_global);
+	echo " Startups Brasil: ";
+	fore($startups_brasil);
 	if(current_user_can('administrator')) {
 		echo "<hr />";
 		echo " In project: ";
@@ -49,4 +54,3 @@ function fore($whatar) {
 		echo "<a href=http://$link ${a_style}>".$linksw." |</a>  ";
 	endforeach;
 }
-?>
