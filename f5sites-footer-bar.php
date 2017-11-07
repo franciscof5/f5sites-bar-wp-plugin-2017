@@ -24,7 +24,8 @@ function mnib_activate() {
 	$startups_brasil = array("br.f5sites.com", "br.franciscomat.com", "www.lojasdomago.com.br", "www.focalizador.com.br", "www.pomodoros.com.br", "www.itapemapa.com.br", "hortical.f5sites.com", "www.cursowp.com.br" );
 	
 	#GENERATE VIEW
-	echo "<div style='background: #006599 !important;color:#CCC;font-family: Open Sans,sans-serif;z-index:9999;font-size: 12px;padding-top:5px;font-weight:600;line-height:30px;position:relative;'>"; 
+	echo "<div style='background: #006599 !important;color:#CCC;font-family: Open Sans,sans-serif;font-size: 12px;padding-top:5px;font-weight:600;line-height:30px;position:relative;'>"; 
+	#z-index:9999;
 	#echo "F5 Sites Network: ";
 	#fore($most_mature);
 	#echo " Under Development: ";
