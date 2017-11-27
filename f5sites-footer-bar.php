@@ -12,7 +12,7 @@ add_action("wp_footer", "mnib_activate");
 
 function mnib_activate() {
 	#DOMAIN GROUPS
-	$most_mature = array("www.f5sites.com", "projects.f5sites.com", "br.f5sites.com", "www.franciscomat.com", "br.franciscomat.com");
+	$most_mature = array("projects.f5sites.com", "br.f5sites.com", "www.f5sites.com", "br.franciscomat.com", "www.franciscomat.com");
 	$under_development = array("www.lojasdomago.com.br", "www.focalizador.com.br", "www.pomodoros.com.br", "www.itapemapa.com.br", "hortical.f5sites.com", "www.cursowp.com.br" );
 	$in_project=array("www.projectimer.com", "www.treinamentoemfoco.com.br", "www.redemapas.com.br", "www.epizzaria.com.br", "SUBSITES", "pensamentos.franciscomat.com", "portfolio.franciscomat.com", "pesquisa.franciscomat.com", "ideias.franciscomat.com");
 	$archived=array("www.grupof.com.br" , "pesquisa.grupof.com.br", "www.qrlink.com.br", "www.editoradeblogs.com.br", "www.ondeabrir.com.br", "www.contratador.com.br");
@@ -26,14 +26,15 @@ function mnib_activate() {
 	#GENERATE VIEW
 	echo "<div style='background: #006599 !important;color:#CCC;font-family: Open Sans,sans-serif;font-size: 12px;padding-top:5px;font-weight:600;line-height:30px;position:relative;'>"; 
 	#z-index:9999;
-	#echo "F5 Sites Network: ";
-	#fore($most_mature);
-	#echo " Under Development: ";
-	#fore($under_development);
-	echo "Global Startups: ";
+	echo "F5 Sites Network: ";
+	fore($most_mature);
+	echo " Under Development: ";
+	fore($under_development);
+	
+	/*/echo "Global Startups: ";
 	fore($startups_global);
 	echo " Startups Brasil: ";
-	fore($startups_brasil);
+	fore($startups_brasil);*/
 	if(current_user_can('administrator')) {
 		echo "<hr />";
 		echo " In project: ";
