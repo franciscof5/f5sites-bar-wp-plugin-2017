@@ -13,7 +13,7 @@ add_action("wp_footer", "mnib_activate");
 function mnib_activate() {
 	#DOMAIN GROUPS
 	$most_mature = array("projects.f5sites.com", "br.f5sites.com", "www.f5sites.com", "br.franciscomat.com", "www.franciscomat.com");
-	$under_development = array("pensamentos.franciscomat.com", "www.lojasdomago.com.br", "www.focalizador.com.br", "www.pomodoros.com.br", "www.itapemapa.com.br", "hortical.f5sites.com", "www.cursowp.com.br" );
+	$under_development = array("pensamentos.franciscomat.com", "portfolio.franciscomat.com", "www.lojasdomago.com.br", "www.focalizador.com.br", "www.pomodoros.com.br", "www.itapemapa.com.br", "hortical.f5sites.com", "www.cursowp.com.br" );
 	$in_project=array("www.projectimer.com", "www.treinamentoemfoco.com.br", "www.redemapas.com.br", "www.epizzaria.com.br", "SUBSITES", "pensamentos.franciscomat.com", "portfolio.franciscomat.com", "pesquisa.franciscomat.com", "ideias.franciscomat.com");
 	$archived=array("www.grupof.com.br" , "pesquisa.grupof.com.br", "www.qrlink.com.br", "www.editoradeblogs.com.br", "www.ondeabrir.com.br", "www.contratador.com.br");
 	#improvisation
@@ -24,7 +24,10 @@ function mnib_activate() {
 	$startups_brasil = array("br.f5sites.com", "br.franciscomat.com", "www.lojasdomago.com.br", "www.focalizador.com.br", "www.pomodoros.com.br", "www.itapemapa.com.br", "hortical.f5sites.com", "www.cursowp.com.br" );
 	
 	#GENERATE VIEW
-	echo "<div style='background: #006599 !important;color:#CCC;font-family: Open Sans,sans-serif;font-size: 12px;padding-top:5px;font-weight:600;line-height:30px;position:relative;'>"; 
+	if(get_option('stylesheet')=="twentyseventeen")#franciscomat.com e br.franciscomat.com (extra position:relative;)
+	echo "<div style='background: #006599 !important;color:#CCC;font-family: Open Sans,sans-serif;font-size: 12px;padding-top:5px;font-weight:600;line-height:30px;position:relative;'>"; 	
+	else 
+	echo "<div style='background: #006599 !important;color:#CCC;font-family: Open Sans,sans-serif;font-size: 12px;padding-top:5px;font-weight:600;line-height:30px;'>"; 
 	#z-index:9999;
 	echo "F5 Sites Network: ";
 	fore($most_mature);
