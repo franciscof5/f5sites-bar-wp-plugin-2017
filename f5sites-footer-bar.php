@@ -58,4 +58,7 @@ function fore($whatar) {
 		$linksw = ($domain_parts[0] == "www") ? $domain_parts[1] : $domain_parts[0];
 		echo "<a href=http://$link ${a_style}>".$linksw." |</a>  ";
 	endforeach;
+	echo "F5 SITES WORDPRESS PHP WP MYSQL MANAGER";
+	echo "Settings: localdatabase name: <- PROCEED -> Remote name";
+	#echo do_shortcode('');
 }
