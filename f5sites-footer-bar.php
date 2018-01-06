@@ -38,7 +38,9 @@ function mnib_activate() {
 	fore($startups_global);
 	echo " Startups Brasil: ";
 	fore($startups_brasil);*/
+	
 	if(current_user_can('administrator')) {
+		return;
 		echo "<hr />";
 		echo " In project: ";
 		fore($in_project);
@@ -46,6 +48,7 @@ function mnib_activate() {
 		echo " Archive: ";
 		fore($archived);
 	}
+
 	#$active_links = array_merge($most_mature, $under_development);
 	echo "</div>";
 	echo "</p>";
@@ -58,7 +61,7 @@ function fore($whatar) {
 		$linksw = ($domain_parts[0] == "www") ? $domain_parts[1] : $domain_parts[0];
 		echo "<a href=http://$link ${a_style}>".$linksw." |</a>  ";
 	endforeach;
-	echo "F5 SITES WORDPRESS PHP WP MYSQL MANAGER";
-	echo "Settings: localdatabase name: <- PROCEED -> Remote name";
+	#echo "F5 SITES WORDPRESS PHP WP MYSQL MANAGER";
+	#echo "Settings: localdatabase name: <- PROCEED -> Remote name";
 	#echo do_shortcode('');
 }
