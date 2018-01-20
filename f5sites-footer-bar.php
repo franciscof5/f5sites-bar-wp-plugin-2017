@@ -30,7 +30,7 @@ function mnib_activate() {
 	echo "<div style='font-size:9px;background: #006599 !important;color:#CCC;font-family: Open Sans,sans-serif;padding-top:5px;font-weight:600;line-height:30px;'>"; 
 	#z-index:9999;
 	#echo "<img src='f5sites-2016-logo-conceito(blue)2x-not-big.png' />";
-	echo '<img src="' . plugins_url( 'f5sites-2016-logo-conceito(branco)2x-not.png', __FILE__ ) . '" > ';
+	echo '<a href="https://www.f5sites.com" alt="F5 Sites International"><img src="' . plugins_url( 'f5sites-2016-logo-conceito(branco)2x-not.png', __FILE__ ) . '" ></a>';
 	echo "Online: ";
 	fore($most_mature);
 	echo " Under Development: ";
