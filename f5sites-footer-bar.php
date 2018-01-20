@@ -25,11 +25,13 @@ function mnib_activate() {
 	
 	#GENERATE VIEW
 	if(get_option('stylesheet')=="twentyseventeen")#franciscomat.com e br.franciscomat.com (extra position:relative;)
-	echo "<div style='background: #006599 !important;color:#CCC;font-family: Open Sans,sans-serif;font-size: 12px;padding-top:5px;font-weight:600;line-height:30px;position:relative;'>"; 	
+	echo "<div style='font-size:9px;background: #006599 !important;color:#CCC;font-family: Open Sans,sans-serif;padding-top:5px;font-weight:600;line-height:30px;position:relative;'>"; 	
 	else 
-	echo "<div style='background: #006599 !important;color:#CCC;font-family: Open Sans,sans-serif;font-size: 12px;padding-top:5px;font-weight:600;line-height:30px;'>"; 
+	echo "<div style='font-size:9px;background: #006599 !important;color:#CCC;font-family: Open Sans,sans-serif;padding-top:5px;font-weight:600;line-height:30px;'>"; 
 	#z-index:9999;
-	echo "F5 Sites Network: ";
+	#echo "<img src='f5sites-2016-logo-conceito(blue)2x-not-big.png' />";
+	echo '<img src="' . plugins_url( 'f5sites-2016-logo-conceito(branco)2x-not.png', __FILE__ ) . '" > ';
+	echo "Online: ";
 	fore($most_mature);
 	echo " Under Development: ";
 	fore($under_development);
