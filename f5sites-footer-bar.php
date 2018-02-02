@@ -48,39 +48,50 @@ function mnib_activate() {
 	
 	#GENERATE VIEW
 	$style = "
-			font-size:10px;
-			background: #006599 !important;
-			color:#111;
-			font-family: Open Sans,sans-serif;
-			font-weight:600;
-			line-height:15px;
-			text-transform: uppercase;";
+			";
 	
 	#
 	if(get_option('stylesheet')=="twentyseventeen") {
 		#franciscomat.com e br.franciscomat.com (extra position:relative;)
 		#alternative	#$sn=$_SERVER['HTTP_HOST'];	#if($sn=="www.franciscomat.com")
-		echo "<div style='".$style."position:relative;'>"; 	
+		echo "<div class='divlinks' style='".$style."position:relative;'>"; 	
 	} else  {
-		echo "<div style='".$style."'>"; 
+		echo "<div class='divlinks' style='".$style."'>"; 
 	}
 	
 	?>
 	<style type="text/css">
+		.divlinks {
+			font-size:10px;
+			background: #222;/*#006599 !important;*/
+			color:#111;
+			font-family: Open Sans,sans-serif;
+			font-weight:600;
+			line-height:15px;
+			text-transform: uppercase;
+			text-align: text;
+		}
+		.alogo {
+			float:left;
+			height: 30px;
+		}
+		.alogo:hover {
+			background: #006599 !important;
+		}
+
 		.alink {
-			
-			color:#CCC;
+			color:#CCC !important;
 			font-family: Open Sans,sans-serif;
 			text-decoration:none;
 		}
 		.alink:hover {
-			color: #FFF;
+			color: #549ED1 !important;
 		}
 	</style>
 	<?php
 
 	#F5 LOGO
-	echo '<a href="https://www.f5sites.com" alt="F5 Sites International" style="float:left"><img src="' . plugins_url( 'f5sites-2016-logo-conceito(branco)2x-not.png', __FILE__ ) . '" ></a>';
+	echo '<a href="https://www.f5sites.com" alt="F5 Sites International" class="alogo"><img src="' . plugins_url( 'f5sites-2016-logo-conceito(branco)2x-not.png', __FILE__ ) . '" ></a>';
 	#LINKS
 	#echo " : ";
 	fore($most_mature);
