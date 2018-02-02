@@ -64,7 +64,7 @@ function mnib_activate() {
 		.divlinks {
 			font-size:10px;
 			background: #222;/*#006599 !important;*/
-			color:#111;
+			color:#666;
 			font-family: Open Sans,sans-serif;
 			font-weight:600;
 			line-height:15px;
