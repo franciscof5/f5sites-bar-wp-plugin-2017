@@ -62,14 +62,15 @@ function mnib_activate() {
 	?>
 	<style type="text/css">
 		.divlinks {
-			font-size:10px;
-			background: #222;/*#006599 !important;*/
-			color:#666;
-			font-family: Open Sans,sans-serif;
-			font-weight:600;
-			line-height:15px;
-			text-transform: uppercase;
-			text-align: text;
+			    background: #222 none repeat scroll 0 0;
+			    color: #666;
+			    font-family: Open Sans,sans-serif;
+			    font-size: 10px;
+			    font-weight: 600;
+			    height: 40px;
+			    line-height: 15px;
+			    padding-top: 5px;
+			    text-transform: uppercase;
 		}
 		.alogo {
 			float:left;
@@ -83,9 +84,12 @@ function mnib_activate() {
 			color:#CCC !important;
 			font-family: Open Sans,sans-serif;
 			text-decoration:none;
+			font-weight: 100;
+			text-decoration: none;
 		}
 		.alink:hover {
 			color: #549ED1 !important;
+			text-decoration: none;
 		}
 	</style>
 	<?php
