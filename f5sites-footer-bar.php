@@ -13,9 +13,10 @@ add_action("wp_footer", "mnib_activate");
 function mnib_activate() {
 	#DOMAIN GROUPS
 	$most_mature = array(
-		["BR F5Sites", 			"br.f5sites.com"],
+		
 		["F5Sites Global", 		"www.f5sites.com"],
-		["Startups", 			"projects.f5sites.com"],
+		["Startups", 			"www.f5sites.com/startups"],
+		["BR F5Sites", 			"br.f5sites.com"],
 		["Francisco Mat BR",	"br.franciscomat.com"],
 		["Francisco Mat Global","www.franciscomat.com"],
 		["Pomodoros", "www.pomodoros.com.br"]);
@@ -64,6 +65,20 @@ function mnib_activate() {
 		echo "<div style='".$style."'>"; 
 	}
 	
+	?>
+	<style type="text/css">
+		.alink {
+			
+			color:#CCC;
+			font-family: Open Sans,sans-serif;
+			text-decoration:none;
+		}
+		.alink:hover {
+			color: #FFF;
+		}
+	</style>
+	<?php
+
 	#F5 LOGO
 	echo '<a href="https://www.f5sites.com" alt="F5 Sites International" style="float:left"><img src="' . plugins_url( 'f5sites-2016-logo-conceito(branco)2x-not.png', __FILE__ ) . '" ></a>';
 	#LINKS
@@ -93,9 +108,9 @@ function mnib_activate() {
 }
 function fore($names_links_array) {
 	#STYLES	
-	$a_style = 'style="color:#BBB;font-family: Open Sans,sans-serif;text-decoration:none;"';
+	
 	foreach ($names_links_array as $item) :
-		echo "<a href='https://".$item[1]."' ${a_style}>".$item[0]." |</a>  ";
+		echo "<a href='https://".$item[1]."'  class='alink'>".$item[0]." |</a>  ";
 	endforeach;
 	#echo "F5 SITES WORDPRESS PHP WP MYSQL MANAGER";
 	#echo "Settings: localdatabase name: <- PROCEED -> Remote name";
