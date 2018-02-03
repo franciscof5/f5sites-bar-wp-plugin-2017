@@ -67,7 +67,7 @@ function mnib_activate() {
 			    font-family: Open Sans,sans-serif;
 			    font-size: 10px;
 			    font-weight: 600;
-			    height: 40px;
+			    min-height: 50px;
 			    line-height: 15px;
 			    padding-top: 5px;
 			    text-transform: uppercase;
