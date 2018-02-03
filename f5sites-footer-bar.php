@@ -71,6 +71,7 @@ function mnib_activate() {
 			    line-height: 15px;
 			    padding-top: 5px;
 			    text-transform: uppercase;
+			    text-align: justify;
 		}
 		.alogo {
 			float:left;
