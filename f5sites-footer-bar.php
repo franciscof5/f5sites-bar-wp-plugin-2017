@@ -13,22 +13,25 @@ add_action("wp_footer", "mnib_activate");
 function mnib_activate() {
 	#DOMAIN GROUPS
 	$most_mature = array(
-		["F5Sites", "www.f5sites.com", "IT Services For Startups", "Serviços para startups globais"],
-		
-		["Francisco Mat", "www.franciscomat.com", "Blog of CEO and full stack developer", "CEO e desenvolvedor full stack"],
-		["BR F5Sites", "br.f5sites.com", "F5 Sites startups services in portuguese", "Serviços para startups no brasil"],
-		["BR Francisco Mat", "br.franciscomat.com", "Brazilian CEO and developer", "Blog pessoal de Francisco"],
+		["F5Sites", "www.f5sites.com", "IT Services For Global Startups", "Serviços para startups globais"],
+		["F5Sites BR", "br.f5sites.com", "Startups services for Brazil", "Serviços para startups no brasil"],
+		["Francisco Mat", "www.franciscomat.com", "Personal blog of CEO and full stack developer", "Blog pessoal do CEO e desenvolvedor full stack"],
+		["Francisco Mat BR", "br.franciscomat.com", "Brazilian version of personal blog of CEO and full stack developer", "Versão brasileira do blog pessoal do CEO e desenvolvedor full stack"],
 		["Pomodoros", "www.pomodoros.com.br", "Open source online app, time tracker for projects", "App online de código-aberto para medir tempo de projetos"]);
 	#["Startups", "www.f5sites.com/startups", "F5 Sites sponsored startups", "Conheça as startups patrocinadas pela F5Sites"],
 	$under_development = array(
 		["Instituto de Pesquisa", "pesquisa.f5sites.com", "Online self-hosted survey tool", "Ferramenta de survey online para pesquisa"],
-		["Pensamentos Curados", "pensamentos.franciscomat.com", "Newsletter for daily toughts", "Pensamentos diários de manhã cedo para você"], 
-		["Francisco Mat Portfolio", "portfolio.franciscomat.com", "Get in touch with Francisco works", "Portfolio de trabalhos do Francisco"],
+		["Curso de WordPress", "www.cursowp.com.br", "WordPress course for brazilian market", "Curso de WordPress para programadores"],
 		["LOJASDOMAGO", "www.lojasdomago.com.br", "Brazilian online store for costumer goods", "Loja de brindes produtos eletrônicos"],
 		["Focalizador", "www.focalizador.com.br", "Gamefied online app for teams track projects time", "App online gamificado para times cronometrarem tempo de projetos"],
+		
+		
 		["Sistema Hortical", "hortical.f5sites.com", "Green and sustaintability project sponsored by F5 Sites", "Projeto de reciclagem e produção de alimentos em garrafa PET"],
-		["Curso de WordPress", "www.cursowp.com.br", "WordPress course for brazilian market", "Curso de WordPress para programadores"],
-		["Treinamento em Foco", "www.treinamentoemfoco.com.br", "Learn how to be productive and relaxed", "Aprenda a usar seu tempo de forma produtiva e relaxante"]);
+		
+		
+		["Treinamento em Foco", "www.treinamentoemfoco.com.br", "Learn how to be productive and relaxed", "Aprenda a usar seu tempo de forma produtiva e relaxante"],
+		["Pensamentos Curados", "pensamentos.franciscomat.com", "Newsletter for daily toughts", "Pensamentos diários de manhã cedo para você"],
+		["Francisco Mat Portfolio", "portfolio.franciscomat.com", "Get in touch with Francisco works", "Portfolio de trabalhos do Francisco"]);
 	#
 	$in_project=array(
 		["Projectimer", "www.projectimer.com", "App for teams and startups track project time", "App para times cronometrarem tempo de projeto"],
@@ -127,15 +130,16 @@ function fore($names_links_array) {
 	$s=$_SERVER['HTTP_HOST'];
 	#echo $s;
 	foreach ($names_links_array as $item) :
-		$ns=$nt='';
+		$ns=$nt=$ntp='';
 		if ($item[1]==$s) {
 			$ns=' style="color:#549ED1 !important;font-weight:100;" ';
-			$nt=' . < You are here >';
+			$nt=' . < you are here >';
+			$ntp=' . < você está aqui >';
 		#	echo "<span style='background:#0365AD;border-radius:3px;'>";
 		
 			#echo "<a $ns class='alink'>".$item[0]."</a>";
 		}# else {
-			echo "<a href='https://".$item[1]."' $ns class='alink'  data-toggle='popover' data-placement='top' title='".$item[2].$nt."' data-trigger='hover' data-content='Portuguese: ".$item[3]."' >".$item[0]."</a>";
+			echo "<a href='https://".$item[1]."' $ns class='alink'  data-toggle='popover' data-placement='top' title='".$item[2].$nt."' data-trigger='hover' data-content='Portuguese: ".$item[3].$ntp."' >".$item[0]."</a>";
 		#}
 
 		#if ($item[1]==$s)
