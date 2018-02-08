@@ -17,12 +17,13 @@ function mnib_activate() {
 		["F5Sites BR", "br.f5sites.com", "Startups services for Brazil", "Serviços para startups no brasil"],
 		["Francisco Mat", "www.franciscomat.com", "Personal blog of CEO and full stack developer", "Blog pessoal do CEO e desenvolvedor full stack"],
 		["Francisco Mat BR", "br.franciscomat.com", "Brazilian version of personal blog of CEO and full stack developer", "Versão brasileira do blog pessoal do CEO e desenvolvedor full stack"],
-		["Pomodoros", "www.pomodoros.com.br", "Open source online app, time tracker for projects", "App online de código-aberto para medir tempo de projetos"]);
+		["Pomodoros", "www.pomodoros.com.br", "Open source online app, time tracker for projects", "App online de código-aberto para medir tempo de projetos"],
+		["LOJASDOMAGO", "www.lojasdomago.com.br", "Brazilian online store for costumer goods", "Loja de brindes produtos eletrônicos"],);
 	#["Startups", "www.f5sites.com/startups", "F5 Sites sponsored startups", "Conheça as startups patrocinadas pela F5Sites"],
 	$under_development = array(
 		["Instituto de Pesquisa", "pesquisa.f5sites.com", "Online self-hosted survey tool", "Ferramenta de survey online para pesquisa"],
 		["Curso de WordPress", "www.cursowp.com.br", "WordPress course for brazilian market", "Curso de WordPress para programadores"],
-		["LOJASDOMAGO", "www.lojasdomago.com.br", "Brazilian online store for costumer goods", "Loja de brindes produtos eletrônicos"],
+		
 		["Focalizador", "www.focalizador.com.br", "Gamefied online app for teams track projects time", "App online gamificado para times cronometrarem tempo de projetos"],
 		
 		
