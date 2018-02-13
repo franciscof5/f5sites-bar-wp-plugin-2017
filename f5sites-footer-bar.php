@@ -14,45 +14,41 @@ function mnib_activate() {
 	#DOMAIN GROUPS
 	$global_st = array(
 		["F5Sites", "www.f5sites.com", "IT Services For Global Startups", "Serviços para startups globais"],
-		
 		["Pomodoros USA", "www.pomodoros.com.br/?lang=en", "Open source online app, time tracker for projects", "App online de código-aberto para medir tempo de projetos"],
 		["Projectimer", "www.projectimer.com", "App for teams and startups track project time", "App para times cronometrarem tempo de projeto"],
 		["Mat`s Blog", "www.franciscomat.com", "Personal blog of CEO and full stack developer", "Blog pessoal do CEO e desenvolvedor full stack"],
 	);
 	$brasil_st = array(
 		["F5Sites BR", "br.f5sites.com", "Startups services for Brazil", "Serviços para startups no brasil"],
-		
-		["Pomodoros BR", "www.pomodoros.com.br/?lang=pt", "Open source online app, time tracker for projects", "App online de código-aberto para medir tempo de projetos"],
+		["Pomodoros", "www.pomodoros.com.br/?lang=pt", "Open source online app, time tracker for projects", "App online de código-aberto para medir tempo de projetos"],
 		["LOJASDOMAGO", "www.lojasdomago.com.br", "Brazilian online store for costumer goods", "Loja de brindes produtos eletrônicos"],
-		["Hortaliças e Orgânicos", "hortical.f5sites.com", "Green and sustaintability project sponsored by F5 Sites", "Projeto de reciclagem e produção de alimentos em garrafa PET"],
+		["Focalizador", "www.focalizador.com.br", "Gamefied online app for teams track projects time", "App online gamificado para times cronometrarem tempo de projetos"],
 		["Blog do Mat", "br.franciscomat.com", "Brazilian version of personal blog of CEO and full stack developer", "Versão brasileira do blog pessoal do CEO e desenvolvedor full stack"],);
 	#["Startups", "www.f5sites.com/startups", "F5 Sites sponsored startups", "Conheça as startups patrocinadas pela F5Sites"],
 	$under_development = array(
 		["Instituto de Pesquisa", "pesquisa.f5sites.com", "Online self-hosted survey tool", "Ferramenta de survey online para pesquisa"],
 		["Curso de WordPress", "www.cursowp.com.br", "WordPress course for brazilian market", "Curso de WordPress para programadores"],
-		["Focalizador", "www.focalizador.com.br", "Gamefied online app for teams track projects time", "App online gamificado para times cronometrarem tempo de projetos"],
 		["Treinamento em Foco", "www.treinamentoemfoco.com.br", "Learn how to be productive and relaxed", "Aprenda a usar seu tempo de forma produtiva e relaxante"],
+		["Hortaliças e Orgânicos", "hortical.f5sites.com", "Green and sustaintability project sponsored by F5 Sites", "Projeto de reciclagem e produção de alimentos em garrafa PET"],
 		["Pensamentos Curados", "pensamentos.franciscomat.com", "Newsletter for daily toughts", "Pensamentos diários de manhã cedo para você"],
-		["Francisco Mat Portfolio", "portfolio.franciscomat.com", "Get in touch with Francisco works", "Portfolio de trabalhos do Francisco"]);
+		["Mat's Portfolio", "portfolio.franciscomat.com", "Get in touch with Francisco works", "Portfolio de trabalhos do Francisco"]);
 	#
 	$in_project=array(
 
 		["Ideias", "ideias.franciscomat.com"]);
 
-	$archived=array(
-		["ItapeMapa", 				"www.itapemapa.com.br"],
-		["", "www.redemapas.com.br"],
-		["", "www.epizzaria.com.br"],
-		"www.grupof.com.br" , "pesquisa.grupof.com.br", "www.qrlink.com.br", "www.editoradeblogs.com.br", "www.ondeabrir.com.br", "www.contratador.com.br");
-	
-	
-	#$div_style = 'style="background: #006599 !important;color:#CCC;font-family: Open Sans,sans-serif;z-index:9999;font-size: 10px;padding-top:5px;font-weight:600;margin-left:30%"';
-	$startups_global = array("www.f5sites.com", "projects.f5sites.com", "www.franciscomat.com");
-	$startups_brasil = array("br.f5sites.com", "br.franciscomat.com", "www.lojasdomago.com.br", "www.focalizador.com.br", "www.pomodoros.com.br", "www.itapemapa.com.br", "hortical.f5sites.com", "www.cursowp.com.br" );
+	$discontinued=array(
+		["ItapeMapa", "www.itapemapa.com.br"],
+		["RedeMapas", "www.redemapas.com.br"],
+		["Epizzaria", "www.epizzaria.com.br"],
+		["www.grupof.com.br"],
+		["www.qrlink.com.br"],
+		["www.editoradeblogs.com.br"],
+		["www.ondeabrir.com.br"],
+		["www.contratador.com.br"]);
 	
 	#GENERATE VIEW
-	$style = "
-			";
+	$style = "";
 	
 	#
 	if(get_option('stylesheet')=="twentyseventeen") {
@@ -99,60 +95,31 @@ function mnib_activate() {
 		}
 	</style>
 	
-	<div style="background: #982 none repeat scroll 0 0;
-    border: 4px dashed #fff;
-    border-radius: 4px;
-    color: #fff;
-    float: right;
-    font-size: 14px;
-    margin-left: 10px;
-    min-height: 30px;
-    min-width: 60px;
-    padding: 4px;"
-    data-toggle='popover' data-placement='top' title='"You F Cash balance, earn point using our services and spent in our virtual stores' data-trigger='hover' data-content='Portuguese: balanço F Cash, ganhe pontos usando nossos serviços e gaste em nossas lojas virtuais'>$<?php
-    	if(function_exists('cp_displayPoints'))
-		cp_displayPoints(get_current_user_id());
-		#the_widget("cp_pointsWidget", "title=''");
-		?></div>
 	<?php
-
-	#F5 LOGO
-	echo '<a href="https://www.f5sites.com" alt="F5 Sites International" class="alogo"><img src="' . plugins_url( 'f5sites-2016-logo-conceito(branco)2x-not.png', __FILE__ ) . '" ></a>';
-	#LINKS
+    if(function_exists('cp_displayPoints')) { ?>
+		<div style="background: #982 none repeat scroll 0 0; border: 4px dashed #fff; border-radius: 4px; color: #fff; float: right; font-size: 14px; margin-left: 10px; min-height: 30px; min-width: 60px; padding: 4px;" data-toggle='popover' data-placement='top' title='"You F Cash balance, earn point using our services and spent in our virtual stores' data-trigger='hover' data-content='Portuguese: balanço F Cash, ganhe pontos usando nossos serviços e gaste em nossas lojas virtuais'>$ 
+    	<?php cp_displayPoints(get_current_user_id()); ?>
+    </div>
+    <?php
+	}
 	?>
+	<a href="https://www.f5sites.com/startups" alt="F5 Sites International" class="alogo">
+		<img src='<?php echo plugins_url( "f5sites-2016-logo-conceito(branco)2x-not.png", __FILE__ ); ?>' />
+		</a>
 	<a href="/categoria/market-region/usa/"><img src="<?php echo plugins_url("us.png",__FILE__);?>" style="display: inline;"></a>
-	<?php
-	#echo " USA & Global: ";
-	fore($global_st);
-	?>
+	<?php fore($global_st);	?>
 	<a href="/categoria/market-region/brasil/"><img src="<?php echo plugins_url("br.png",__FILE__);?>" style="display: inline;"></a>
-	<?php
-	#echo " Brasil: ";
-	fore($brasil_st);
-	
-	echo " Under Dev: ";
-	fore($under_development);
-	/*/echo "Global Startups: ";
-	fore($startups_global);
-	echo " Startups Brasil: ";
-	fore($startups_brasil);*/
+	<?php fore($brasil_st);	?>
+	Under Dev:
+	<?php fore($under_development);
 	
 	if(current_user_can('administrator')) {
-		#return;
-		#echo "<br />";
 		echo " In project: ";
 		fore($in_project);
-		#echo "<br />";
-		#echo " Archive: ";
-		#fore($archived);
 	}
-
-	#$active_links = array_merge($most_mature, $under_development);
-	
-	#echo "<div style='float:right;'>FPONTOS:200</div>";
-	
-	echo "</div>";
-	#echo "</p>";
+	?>
+	</div>
+	<?php
 }
 function fore($names_links_array) {
 	#STYLES	
