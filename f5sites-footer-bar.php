@@ -31,7 +31,8 @@ function mnib_activate() {
 		["Treinamento em Foco", "www.treinamentoemfoco.com.br", "Learn how to be productive and relaxed", "Aprenda a usar seu tempo de forma produtiva e relaxante"],
 		["Hortaliças e Orgânicos", "hortical.f5sites.com", "Green and sustaintability project sponsored by F5 Sites", "Projeto de reciclagem e produção de alimentos em garrafa PET"],
 		["Pensamentos Curados", "pensamentos.franciscomat.com", "Newsletter for daily toughts", "Pensamentos diários de manhã cedo para você"],
-		["Mat's Portfolio", "portfolio.franciscomat.com", "Get in touch with Francisco works", "Portfolio de trabalhos do Francisco"]);
+		["Mat's Portfolio", "portfolio.franciscomat.com", "Get in touch with Francisco works", "Portfolio de trabalhos do Francisco"],
+		["F5 Source", "source.f5sites.com", "Our open source open directory", "Fontes de código-aberto que usamos"]);
 	#
 	$in_project=array(
 
@@ -103,14 +104,13 @@ function mnib_activate() {
     <?php
 	}
 	?>
-	<a href="https://www.f5sites.com/startups" alt="F5 Sites International" class="alogo">
-		<img src='<?php echo plugins_url( "f5sites-2016-logo-conceito(branco)2x-not.png", __FILE__ ); ?>' />
-		</a>
-	<a href="/categoria/market-region/usa/"><img src="<?php echo plugins_url("us.png",__FILE__);?>" style="display: inline;"></a>
+	<a href="https://www.f5sites.com/startups/" alt="F5 Sites International" class="alogo"><img src='<?php echo plugins_url( "f5sites-2016-logo-conceito(branco)2x-not.png", __FILE__ ); ?>' /></a>
+	
+	<a href="https://www.f5sites.com/startups/"><img src="<?php echo plugins_url("us.png",__FILE__);?>" style="display: inline;"></a>
 	<?php fore($global_st);	?>
-	<a href="/categoria/market-region/brasil/"><img src="<?php echo plugins_url("br.png",__FILE__);?>" style="display: inline;"></a>
+	<a href="https://br.f5sites.com/startups-brasil/"><img src="<?php echo plugins_url("br.png",__FILE__);?>" style="display: inline;"></a>
 	<?php fore($brasil_st);	?>
-	Under Dev:
+	<a href="https://www.f5sites.com/f5-sites-under-development/" class="alink"><strong>Under Dev:</strong></a>
 	<?php fore($under_development);
 	
 	if(current_user_can('administrator')) {
