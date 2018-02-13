@@ -46,7 +46,8 @@ function mnib_activate() {
 		["www.qrlink.com.br"],
 		["www.editoradeblogs.com.br"],
 		["www.ondeabrir.com.br"],
-		["www.contratador.com.br"]);
+		["www.contratador.com.br"],
+		["F5 Projects", "projects.f5sites.com", "More information about our projects", "Mais informações sobre nossos projetos"]);
 	
 	#GENERATE VIEW
 	$style = "";
