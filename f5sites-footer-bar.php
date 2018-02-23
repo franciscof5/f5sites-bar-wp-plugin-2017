@@ -13,26 +13,26 @@ add_action("wp_footer", "mnib_activate", 12, 2);
 function mnib_activate() {
 	#DOMAIN GROUPS
 	$global_st = array(
-		["F5Sites", "www.f5sites.com", "IT Services For Global Startups", "Serviços para startups globais"],
-		["Pomodoros USA", "www.pomodoros.com.br/?lang=en", "Open source online app, time tracker for projects", "App online de código-aberto para medir tempo de projetos"],
-		["Projectimer", "www.projectimer.com", "App for teams and startups track project time", "App para times cronometrarem tempo de projeto"],
-		["Mat`s Blog", "www.franciscomat.com", "Personal blog of CEO and full stack developer", "Blog pessoal do CEO e desenvolvedor full stack"],
+		["F5Sites", "www.f5sites.com/startups/f5sites/", "IT Services For Global Startups", "Serviços para startups globais", "www.f5sites.com"],
+		["Pomodoros USA", "www.f5sites.com/startups/pomodoros-usa/", "Open source online app, time tracker for projects", "App online de código-aberto para medir tempo de projetos", "www.pomodoros.com.br"],
+		["Projectimer", "www.f5sites.com/startups/projectimer/", "App for teams and startups track project time", "App para times cronometrarem tempo de projeto", "www.projectimer.com"],
+		["Mat`s Blog", "www.f5sites.com/startups/franciscomat-com/", "Personal blog of CEO and full stack developer", "Blog pessoal do CEO e desenvolvedor full stack", "www.franciscomat.com"],
 	);
 	$brasil_st = array(
-		["F5Sites BR", "br.f5sites.com", "Startups services for Brazil", "Serviços para startups no brasil"],
-		["Pomodoros", "www.pomodoros.com.br/?lang=pt", "Open source online app, time tracker for projects", "App online de código-aberto para medir tempo de projetos"],
-		["LOJASDOMAGO", "www.lojasdomago.com.br", "Brazilian online store for costumer goods", "Loja de brindes produtos eletrônicos"],
-		["Focalizador", "www.focalizador.com.br", "Gamefied online app for teams track projects time", "App online gamificado para times cronometrarem tempo de projetos"],
-		["Blog do Mat", "br.franciscomat.com", "Brazilian version of personal blog of CEO and full stack developer", "Versão brasileira do blog pessoal do CEO e desenvolvedor full stack"],);
+		["F5Sites BR", "www.f5sites.com/startups-brasil/br-f5sites", "Startups services for Brazil", "Serviços para startups no brasil", "br.f5sites.com"],
+		["Pomodoros", "www.f5sites.com/startups-brasil/pomodoros", "Open source online app, time tracker for projects", "App online de código-aberto para medir tempo de projetos", "www.pomodoros.com.br"],
+		["LOJASDOMAGO", "www.f5sites.com/startups-brasil/lojasdomago", "Brazilian online store for costumer goods", "Loja de brindes produtos eletrônicos", "www.lojasdomago.com.br"],
+		["Focalizador", "www.f5sites.com/startups-brasil/focalizador", "Gamefied online app for teams track projects time", "App online gamificado para times cronometrarem tempo de projetos", "www.focalizador.com.br"],
+		["Blog do Mat", "www.f5sites.com/startups-brasil/br.franciscomat.com", "Brazilian version of personal blog of CEO and full stack developer", "Versão brasileira do blog pessoal do CEO e desenvolvedor full stack", "br.franciscomat.com"],);
 	#["Startups", "www.f5sites.com/startups", "F5 Sites sponsored startups", "Conheça as startups patrocinadas pela F5Sites"],
 	$under_development = array(
-		["Instituto de Pesquisa", "pesquisa.f5sites.com", "Online self-hosted survey tool", "Ferramenta de survey online para pesquisa"],
-		["Curso de WordPress", "www.cursowp.com.br", "WordPress course for brazilian market", "Curso de WordPress para programadores"],
-		["Treinamento em Foco", "www.treinamentoemfoco.com.br", "Learn how to be productive and relaxed", "Aprenda a usar seu tempo de forma produtiva e relaxante"],
-		["Hortaliças e Orgânicos", "hortical.f5sites.com", "Green and sustaintability project sponsored by F5 Sites", "Projeto de reciclagem e produção de alimentos em garrafa PET"],
-		["Pensamentos Curados", "pensamentos.franciscomat.com", "Newsletter for daily toughts", "Pensamentos diários de manhã cedo para você"],
-		["Mat's Portfolio", "portfolio.franciscomat.com", "Get in touch with Francisco works", "Portfolio de trabalhos do Francisco"],
-		["F5 Source", "source.f5sites.com", "Our open source open directory", "Fontes de código-aberto que usamos"]);
+		["Instituto de Pesquisa", "www.f5sites.com/startups-under-development/instituto-de-pesquisa/", "Online self-hosted survey tool", "Ferramenta de survey online para pesquisa", "pesquisa.f5sites.com"],
+		["Curso de WordPress", "www.f5sites.com/startups-under-development/cursowp/", "WordPress course for brazilian market", "Curso de WordPress para programadores", "www.cursowp.com.br"],
+		["Treinamento em Foco", "www.f5sites.com/startups-under-development/treinamentoemfoco", "Learn how to be productive and relaxed", "Aprenda a usar seu tempo de forma produtiva e relaxante", "www.treinamentoemfoco.com.br"],
+		["Hortaliças e Orgânicos", "www.f5sites.com/startups-under-development/hortical", "Green and sustaintability project sponsored by F5 Sites", "Projeto de reciclagem e produção de alimentos em garrafa PET", "hortical.f5sites.com"],
+		["Pensamentos Curados", "www.f5sites.com/startups-under-development/pensamentos", "Newsletter for daily toughts", "Pensamentos diários de manhã cedo para você", "pensamentos.franciscomat.com"],
+		["Mat's Portfolio", "www.f5sites.com/startups-under-development/portfolio", "Get in touch with Francisco works", "Portfolio de trabalhos do Francisco", "portfolio.franciscomat.com"],
+		["F5 Source", "www.f5sites.com/startups-under-development/source", "Our open source open directory", "Fontes de código-aberto que usamos", "source.f5sites.com"]);
 	#
 	$in_project=array(
 
@@ -105,13 +105,15 @@ function mnib_activate() {
     <?php
 	}
 	?>
-	<a href="https://www.f5sites.com/startups/" alt="F5 Sites International" class="alogo"><img src='<?php echo plugins_url( "f5sites-2016-logo-conceito(branco)2x-not.png", __FILE__ ); ?>' /></a>
+	<a href="https://www.f5sites.com/startups-navigator/" alt="F5 Sites International" class="alogo" data-toggle='popover' data-placement='top' title="F5 Sites Startups Navigator" data-trigger='hover' data-content="Portuguese: Navegador de Startups F5 Sites"><img src='<?php echo plugins_url( "f5sites-2016-logo-conceito(branco)2x-not.png", __FILE__ ); ?>' /></a>
 	
-	<a href="https://www.f5sites.com/startups/"><img src="<?php echo plugins_url("us.png",__FILE__);?>" style="display: inline;"></a>
+	<a href="https://www.f5sites.com/startups/" data-toggle='popover' data-placement='top' title="F5 Sites Global Startups" data-trigger='hover' data-content="Portuguese: F5 Sites Startups de Classe Global"><img src="<?php echo plugins_url("us.png",__FILE__);?>" style="display: inline;"></a>
 	<?php fore($global_st);	?>
-	<a href="https://br.f5sites.com/startups-brasil/"><img src="<?php echo plugins_url("br.png",__FILE__);?>" style="display: inline;"></a>
+	
+	<a href="https://br.f5sites.com/startups-brasil/" data-toggle='popover' data-placement='top' title="F5 Sites Startups For Brazil" data-trigger='hover' data-content="Portuguese: F5 Sites Startups Para o Brasil"><img src="<?php echo plugins_url("br.png",__FILE__);?>" style="display: inline;"></a>
 	<?php fore($brasil_st);	?>
-	<a href="https://www.f5sites.com/f5-sites-under-development/" class="alink"><strong>Under Dev:</strong></a>
+
+	<a href="https://www.f5sites.com/f5-sites-under-development/" class="alink" data-toggle='popover' data-placement='top' title="F5 Sites Startups Under Development" data-trigger='hover' data-content="Portuguese: F5 Sites Startups em Desenvolvimento"><img src="<?php echo plugins_url("under-dev-icon.png",__FILE__);?>" style="display: inline;"></a>
 	<?php fore($under_development);
 	
 	if(current_user_can('administrator')) {
@@ -128,7 +130,7 @@ function fore($names_links_array) {
 	#echo $s;
 	foreach ($names_links_array as $item) :
 		$ns=$nt=$ntp='';
-		if ($item[1]==$s) {
+		if ($item[4]==$s) {
 			$ns=' style="color:#549ED1 !important;font-weight:100;" ';
 			$nt=' . < you are here >';
 			$ntp=' . < você está aqui >';
