@@ -116,10 +116,10 @@ function mnib_activate() {
 	<a href="https://www.f5sites.com/f5-sites-under-development/" class="alink" data-toggle='popover' data-placement='top' title="F5 Sites Startups Under Development" data-trigger='hover' data-content="Portuguese: F5 Sites Startups em Desenvolvimento"><img src="<?php echo plugins_url("under-dev-icon.png",__FILE__);?>" style="display: inline;"></a>
 	<?php fore($under_development);
 	
-	if(current_user_can('administrator')) {
+	/*if(current_user_can('administrator')) {
 		echo " In project: ";
 		fore($in_project);
-	}
+	}*/
 	?>
 	</div>
 	<?php
@@ -130,14 +130,17 @@ function fore($names_links_array) {
 	#echo $s;
 	foreach ($names_links_array as $item) :
 		$ns=$nt=$ntp='';
-		if ($item[4]==$s) {
-			$ns=' style="color:#549ED1 !important;font-weight:100;" ';
-			$nt=' . < you are here >';
-			$ntp=' . < você está aqui >';
-		#	echo "<span style='background:#0365AD;border-radius:3px;'>";
-		
-			#echo "<a $ns class='alink'>".$item[0]."</a>";
+		if(isset($item[4])) {
+			if ($item[4]==$s) {
+				$ns=' style="color:#549ED1 !important;font-weight:100;" ';
+				$nt=' . < you are here >';
+				$ntp=' . < você está aqui >';
+			#	echo "<span style='background:#0365AD;border-radius:3px;'>";
+			
+				#echo "<a $ns class='alink'>".$item[0]."</a>";
+			}	
 		}
+		
 			echo "<a href='https://".$item[1]."' $ns class='alink'  data-toggle='popover' data-placement='top' title='".$item[2].$nt."' data-trigger='hover' data-content='Portuguese: ".$item[3].$ntp."' >".$item[0]."</a>";
 		#echo "F5 SITES WORDPRESS PHP WP MYSQL MANAGER";
 		#echo "Settings: localdatabase name: <- PROCEED -> Remote name";
