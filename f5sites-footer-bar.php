@@ -8,6 +8,11 @@ Author URI: https://www.franciscomat.com/
 License: GPLv3
 Tags: mu-plugins, notice bars */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+
 add_action("wp_footer", "mnib_activate", 12, 2);
 
 function mnib_activate() {
