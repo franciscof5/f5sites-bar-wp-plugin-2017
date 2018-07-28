@@ -18,6 +18,19 @@ add_action("wp_footer", "mnib_activate", 12, 2);
 function mnib_activate() {
 	#DOMAIN GROUPS
 	$global_st = array(
+		["F5Sites", "www.f5sites.com/", "IT Services For Global Startups", "Serviços para startups globais", "www.f5sites.com"],
+		["Francisco Mat", "www.franciscomat.com/", "Personal blog of CEO and full stack developer", "Blog pessoal do CEO e desenvolvedor full stack", "www.franciscomat.com"],
+		["Pomodoros", "www.pomodoros.com.br/?lang=en_US", "Open source online app, time tracker for projects", "App online de código-aberto para medir tempo de projetos", "www.pomodoros.com.br"],
+		#["Projectimer", "www.f5sites.com/startups/projectimer/", "App for teams and startups track project time", "App para times cronometrarem tempo de projeto", "www.projectimer.com"],
+	);
+	$brasil_st = array(
+		["F5Sites", "br.f5sites.com/", "Serviços para startups no brasil", "Startups services for Brazil", "br.f5sites.com"],
+		["Francisco Mat", "br.franciscomat.com/", "Versão brasileira do blog pessoal do CEO e desenvolvedor full stack", "Brazilian version of personal blog of CEO and full stack developer", "br.franciscomat.com"],
+		["Pomodoros", "www.pomodoros.com.br/?lang=pt_BR", "App online de código-aberto para medir tempo de projetos", "Open source online app, time tracker for projects", "www.pomodoros.com.br"],
+		#["Curso de WordPress", "www.f5sites.com/startups-under-development/cursowp/", "WordPress course for brazilian market", "Curso de WordPress para programadores", "www.cursowp.com.br"],
+		
+	);
+	/*$global_st = array(
 		["F5Sites", "www.f5sites.com/startups/f5sites/", "IT Services For Global Startups", "Serviços para startups globais", "www.f5sites.com"],
 		["Francisco Mat", "www.f5sites.com/startups/franciscomat-com/", "Personal blog of CEO and full stack developer", "Blog pessoal do CEO e desenvolvedor full stack", "www.franciscomat.com"],
 		["Pomodoros USA", "www.f5sites.com/startups/pomodoros-usa/", "Open source online app, time tracker for projects", "App online de código-aberto para medir tempo de projetos", "www.pomodoros.com.br"],
@@ -29,7 +42,7 @@ function mnib_activate() {
 		["BR Pomodoros", "www.f5sites.com/startups-brasil/pomodoros", "Open source online app, time tracker for projects", "App online de código-aberto para medir tempo de projetos", "www.pomodoros.com.br"],
 		["Curso de WordPress", "www.f5sites.com/startups-under-development/cursowp/", "WordPress course for brazilian market", "Curso de WordPress para programadores", "www.cursowp.com.br"],
 		
-	);
+	);*/
 	#["Startups", "www.f5sites.com/startups", "F5 Sites sponsored startups", "Conheça as startups patrocinadas pela F5Sites"],
 	$under_development = array(
 		["LOJASDOMAGO", "www.f5sites.com/startups-brasil/lojasdomago", "Brazilian online store for costumer goods", "Loja de brindes produtos eletrônicos", "www.lojasdomago.com.br"],
@@ -119,11 +132,19 @@ function mnib_activate() {
 	?>
 	<a href="https://www.f5sites.com/startups-navigator/" alt="F5 Sites International" class="alogo" data-toggle='popover' data-placement='top' title="F5 Sites Startups Navigator" data-trigger='hover' data-content="Portuguese: Navegador de Startups F5 Sites"><img src='<?php echo plugins_url( "f5sites-2016-logo-conceito(branco)2x-not.png", __FILE__ ); ?>' /></a>
 	<?php 
-	if(function_exists("locale_accept_from_http"))
-	$local = locale_accept_from_http($_SERVER['HTTP_ACCEPT_LANGUAGE']);
-	else
-	$local = "en_US";
-	if($local=="pt" || $local=="pt_BR" || $local=="pt_PT") { ?>
+	if(class_exists("WC_Geolocation")) {
+		$location = WC_Geolocation::geolocate_ip();
+		$local = $location['country'];
+	}
+
+	if(!$local) {
+		if(function_exists("locale_accept_from_http"))
+		$local = locale_accept_from_http($_SERVER['HTTP_ACCEPT_LANGUAGE']);
+		else
+		$local = "en_US";
+	}
+	
+	if($local=="PT" || $local=="BR" || $local=="pt" || $local=="pt_BR" || $local=="pt_PT") { ?>
 		<a href="https://br.f5sites.com/startups-brasil/" data-toggle='popover' data-placement='top' title="F5 Sites startups for Brazil" data-trigger='hover' data-content="Portuguese: F5 Sites startups para o Brasil"><img src="<?php echo plugins_url("br.png",__FILE__);?>" style="display: inline;"></a>
 		<?php fore($brasil_st);	?>
 	<?php } else { ?>
@@ -161,13 +182,13 @@ function fore($names_links_array) {
 				#echo "<a $ns class='alink'>".$item[0]."</a>";
 			}	
 		}
-		
-			echo "<a href='https://".$item[1]."' $ns class='alink'  data-toggle='popover' data-placement='top' title='".$item[2].$nt."' data-trigger='hover' data-content='Portuguese: ".$item[3].$ntp."' >".$item[0]."</a>";
+		echo " | ";
+			echo "<a href='https://".$item[1]."' $ns class='alink'  data-toggle='popover' data-placement='top' title='".$item[2].$nt."' data-trigger='hover' data-content='".$item[3].$ntp."' >".$item[0]."</a>";
 		#echo "F5 SITES WORDPRESS PHP WP MYSQL MANAGER";
 		#echo "Settings: localdatabase name: <- PROCEED -> Remote name";
 		#echo do_shortcode('');
 
-		echo " | ";
+		
 
 	endforeach;
 	?>
