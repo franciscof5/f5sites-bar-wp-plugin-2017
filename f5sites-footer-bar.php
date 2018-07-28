@@ -76,10 +76,13 @@ function mnib_activate() {
 			    background: #222 none repeat scroll 0 0;
 			    color: #666;
 			    font-family: Open Sans,sans-serif;
-			    font-size: 10px;
+			    /*font-size: 10px;
+			    line-height: 15px;
+			    */
+			    font-size: 12px;
+    			line-height: 32px;
 			    font-weight: 600;
 			    min-height: 50px;
-			    line-height: 15px;
 			    padding-top: 5px;
 			    text-transform: uppercase;
 			    text-align: justify;
@@ -115,13 +118,22 @@ function mnib_activate() {
 	}
 	?>
 	<a href="https://www.f5sites.com/startups-navigator/" alt="F5 Sites International" class="alogo" data-toggle='popover' data-placement='top' title="F5 Sites Startups Navigator" data-trigger='hover' data-content="Portuguese: Navegador de Startups F5 Sites"><img src='<?php echo plugins_url( "f5sites-2016-logo-conceito(branco)2x-not.png", __FILE__ ); ?>' /></a>
-	
-	<a href="https://www.f5sites.com/startups/" data-toggle='popover' data-placement='top' title="F5 Sites global startups" data-trigger='hover' data-content="Portuguese: F5 Sites startups de classe global"><img src="<?php echo plugins_url("us.png",__FILE__);?>" style="display: inline;"></a>
-	<?php fore($global_st);	?>
-	
-	<a href="https://br.f5sites.com/startups-brasil/" data-toggle='popover' data-placement='top' title="F5 Sites startups for Brazil" data-trigger='hover' data-content="Portuguese: F5 Sites startups para o Brasil"><img src="<?php echo plugins_url("br.png",__FILE__);?>" style="display: inline;"></a>
-	<?php fore($brasil_st);	?>
+	<?php 
+	if(function_exists("locale_accept_from_http"))
+	$local = locale_accept_from_http($_SERVER['HTTP_ACCEPT_LANGUAGE']);
+	else
+	$local = "en_US";
+	if($local=="pt" || $local=="pt_BR" || $local=="pt_PT") { ?>
+		<a href="https://br.f5sites.com/startups-brasil/" data-toggle='popover' data-placement='top' title="F5 Sites startups for Brazil" data-trigger='hover' data-content="Portuguese: F5 Sites startups para o Brasil"><img src="<?php echo plugins_url("br.png",__FILE__);?>" style="display: inline;"></a>
+		<?php fore($brasil_st);	?>
+	<?php } else { ?>
+		<a href="https://www.f5sites.com/startups/" data-toggle='popover' data-placement='top' title="F5 Sites global startups" data-trigger='hover' data-content="Portuguese: F5 Sites startups de classe global"><img src="<?php echo plugins_url("us.png",__FILE__);?>" style="display: inline;"></a>
+		<?php fore($global_st);	?>
+	<?php }	?>
 
+	<?php
+	#var_dump($local);die;
+	/*###############
 	<a href="https://www.f5sites.com/startups-under-development/" class="alink" data-toggle='popover' data-placement='top' title="F5 Sites startups Under development" data-trigger='hover' data-content="Portuguese: F5 Sites startups em desenvolvimento"><img src="<?php echo plugins_url("under-dev-icon.png",__FILE__);?>" style="display: inline;"></a>
 	<?php fore($under_development);
 	
