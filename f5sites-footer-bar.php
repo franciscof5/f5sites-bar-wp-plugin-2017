@@ -18,14 +18,14 @@ add_action("wp_footer", "mnib_activate", 12, 2);
 function mnib_activate() {
 	#DOMAIN GROUPS
 	$global_st = array(
-		["F5Sites", "www.f5sites.com/", "IT Services For Global Startups", "Serviços para startups globais", "www.f5sites.com"],
-		["Francisco Mat", "www.franciscomat.com/", "Personal blog of CEO and full stack developer", "Blog pessoal do CEO e desenvolvedor full stack", "www.franciscomat.com"],
+		["F5Sites", "www.f5sites.com", "IT Services For Global Startups", "Serviços para startups globais", "www.f5sites.com"],
+		["Francisco Mat", "www.franciscomat.com", "Personal blog of CEO and full stack developer", "Blog pessoal do CEO e desenvolvedor full stack", "www.franciscomat.com"],
 		["Pomodoros", "www.pomodoros.com.br/?lang=en_US", "Open source online app, time tracker for projects", "App online de código-aberto para medir tempo de projetos", "www.pomodoros.com.br"],
 		#["Projectimer", "www.f5sites.com/startups/projectimer/", "App for teams and startups track project time", "App para times cronometrarem tempo de projeto", "www.projectimer.com"],
 	);
 	$brasil_st = array(
-		["F5Sites", "br.f5sites.com/", "Serviços para startups no brasil", "Startups services for Brazil", "br.f5sites.com"],
-		["Francisco Mat", "br.franciscomat.com/", "Versão brasileira do blog pessoal do CEO e desenvolvedor full stack", "Brazilian version of personal blog of CEO and full stack developer", "br.franciscomat.com"],
+		["F5Sites", "br.f5sites.com", "Serviços para startups no brasil", "Startups services for Brazil", "br.f5sites.com"],
+		["Francisco Mat", "br.franciscomat.com", "Versão brasileira do blog pessoal do CEO e desenvolvedor full stack", "Brazilian version of personal blog of CEO and full stack developer", "br.franciscomat.com"],
 		["Pomodoros", "www.pomodoros.com.br/?lang=pt_BR", "App online de código-aberto para medir tempo de projetos", "Open source online app, time tracker for projects", "www.pomodoros.com.br"],
 		["LojasDoMago", "www.lojasdomago.com.br", "Brazilian online store for costumer goods", "Loja de brindes produtos eletrônicos"],
 		#["Curso de WordPress", "www.f5sites.com/startups-under-development/cursowp/", "WordPress course for brazilian market", "Curso de WordPress para programadores", "www.cursowp.com.br"],
@@ -136,7 +136,7 @@ function mnib_activate() {
 	if(class_exists("WC_Geolocation")) {
 		$location = WC_Geolocation::geolocate_ip();
 		$local = $location['country'];
-	}
+	} 
 
 	if(!$local) {
 		if(function_exists("locale_accept_from_http"))
@@ -171,10 +171,14 @@ function fore($names_links_array) {
 	#STYLES	
 	$s=$_SERVER['HTTP_HOST'];
 	#echo $s;
+	#var_dump($names_links_array);
 	foreach ($names_links_array as $item) :
 		$ns=$nt=$ntp='';
-		if(isset($item[4])) {
-			if ($item[4]==$s) {
+		if(isset($item[1])) {
+			#var_dump($item[1]);
+			#var_dump($s);
+			#die;
+			if ($item[1]==$s) {
 				$ns=' style="color:#549ED1 !important;font-weight:100;" ';
 				$nt=' . < you are here >';
 				$ntp=' . < você está aqui >';
