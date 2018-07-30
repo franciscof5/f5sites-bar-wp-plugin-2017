@@ -170,15 +170,19 @@ function mnib_activate() {
 function fore($names_links_array) {
 	#STYLES	
 	$s=$_SERVER['HTTP_HOST'];
+	#$s = 
 	#echo $s;
 	#var_dump($names_links_array);
 	foreach ($names_links_array as $item) :
 		$ns=$nt=$ntp='';
 		if(isset($item[1])) {
+			$s1 = rtrim($s, '/');
+			$s2 = dirname($item[1]);
+			#var_dump($s1);
 			#var_dump($item[1]);
-			#var_dump($s);
+			#var_dump($s2);
 			#die;
-			if ($item[1]==$s) {
+			if ($s1==$s2) {
 				$ns=' style="color:#549ED1 !important;font-weight:100;" ';
 				$nt=' . < you are here >';
 				$ntp=' . < você está aqui >';
