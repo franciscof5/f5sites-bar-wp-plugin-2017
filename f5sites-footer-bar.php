@@ -177,7 +177,10 @@ function fore($names_links_array) {
 		$ns=$nt=$ntp='';
 		if(isset($item[1])) {
 			$s1 = rtrim($s, '/');
-			$s2 = dirname($item[1]);
+			if(dirname($item[1])==".")
+				$s2 = ($item[1]);
+			else
+				$s2 = dirname($item[1]);
 			#var_dump($s1);
 			#var_dump($item[1]);
 			#var_dump($s2);
