@@ -134,17 +134,19 @@ function generate_footer() {
 	if(!class_exists("WC_Geolocation") || $location["city"]=="") {
 		#if(gethostname()!="note-samsung") ?>
 		<script type="text/javascript">
-			jQuery.get("https://ipinfo.io?token=e7e9316dfdc5fa", function (response) {
-		    //console.log("IP: " + response.ip);
-			//console.log("Location: " + response.city + ", " + response.region);
-			if(jQuery("#user_location_country").text()!=response.country) {
-				//alert("geolocated ip from remote is different then woocommerce");
-			}
-			jQuery("#user_location_city").text(response.city);
-			jQuery("#user_location_region").text(response.region);
-			jQuery("#user_location_country").text(response.country);
-			
-		}, "jsonp");
+			jQuery( document ).ready(function() {
+				jQuery.get("https://ipinfo.io?token=e7e9316dfdc5fa", function (response) {
+			    //console.log("IP: " + response.ip);
+				//console.log("Location: " + response.city + ", " + response.region);
+				if(jQuery("#user_location_country").text()!=response.country) {
+					//alert("geolocated ip from remote is different then woocommerce");
+				}
+				jQuery("#user_location_city").text(response.city);
+				jQuery("#user_location_region").text(response.region);
+				jQuery("#user_location_country").text(response.country);
+				
+			}, "jsonp");
+		}
 		</script>
 		
 	<?php }
