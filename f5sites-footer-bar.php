@@ -34,7 +34,7 @@ function generate_footer() {
 	#GENERATE VIEW
 	$style = "padding-top:6px;background:#222;";
 	?>
-	<div class="row row-footer">
+	<div class="container-fluid row-footer">
 	<?php
 	#
 	if(get_option('stylesheet')=="twentyseventeen") {
@@ -131,7 +131,8 @@ function generate_footer() {
 	} else {
 		die;
 	}
-	if(!class_exists("WC_Geolocation") || $location["city"]=="") {?>
+	if(!class_exists("WC_Geolocation") || $location["city"]=="") {
+		#if(gethostname()!="note-samsung")?>
 		<script type="text/javascript">
 			jQuery.get("https://ipinfo.io?token=e7e9316dfdc5fa", function (response) {
 		    //console.log("IP: " + response.ip);
