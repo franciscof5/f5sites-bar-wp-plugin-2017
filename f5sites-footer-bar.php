@@ -128,14 +128,16 @@ function generate_footer() {
 		#var_dump($location);
 		//$location['city'].$location['region']
 		$local = $location['country'];
-	} else {
-		die;
-	}
+	} /*else {
+		$local = "US";
+		#die;
+	}*/
 	if(!class_exists("WC_Geolocation") || $location["city"]=="") {
 		#if(gethostname()!="note-samsung") ?>
 		<script type="text/javascript">
-			jQuery( document ).ready(function() {
-				jQuery.get("https://ipinfo.io?token=e7e9316dfdc5fa", function (response) {
+		//jQuery( document ).ready(function() {
+			jQuery.get("https://ipinfo.io?token=e7e9316dfdc5fa", function (response) {
+				alert(response.city);
 			    //console.log("IP: " + response.ip);
 				//console.log("Location: " + response.city + ", " + response.region);
 				if(jQuery("#user_location_country").text()!=response.country) {
@@ -146,7 +148,7 @@ function generate_footer() {
 				jQuery("#user_location_country").text(response.country);
 				
 			}, "jsonp");
-		}
+		//}
 		</script>
 		
 	<?php }
@@ -202,7 +204,13 @@ function generate_footer() {
 		<img src="<?php echo plugins_url('assets/location-icon-map-png-location-24-128.png', __FILE__) ?>">
 		<span id="user_location_city"></span>, 
 		<span id="user_location_region"></span>, 
-		<span id="user_location_country"><?php echo $location['country']; ?></span>
+		<span id="user_location_country"><?php 
+			if(isset($location['country']))
+				echo $location['country'];
+			else
+				echo $local;
+			?>
+		</span>
 		
 		</p>
 	</div>
