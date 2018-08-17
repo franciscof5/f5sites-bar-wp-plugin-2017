@@ -147,7 +147,7 @@ function generate_footer() {
 		}, "jsonp");
 		</script>
 		
-	<?php }
+	<?php #}
 
 	if(!$local) {
 		if(function_exists("locale_accept_from_http"))
