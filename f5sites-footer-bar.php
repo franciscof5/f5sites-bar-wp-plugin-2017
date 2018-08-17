@@ -132,7 +132,7 @@ function generate_footer() {
 		die;
 	}
 	if(!class_exists("WC_Geolocation") || $location["city"]=="") {
-		#if(gethostname()!="note-samsung")?>
+		#if(gethostname()!="note-samsung") ?>
 		<script type="text/javascript">
 			jQuery.get("https://ipinfo.io?token=e7e9316dfdc5fa", function (response) {
 		    //console.log("IP: " + response.ip);
@@ -147,7 +147,7 @@ function generate_footer() {
 		}, "jsonp");
 		</script>
 		
-	<?php #}
+	<?php }
 
 	if(!$local) {
 		if(function_exists("locale_accept_from_http"))
