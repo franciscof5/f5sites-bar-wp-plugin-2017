@@ -137,7 +137,7 @@ function generate_footer() {
 		<script type="text/javascript">
 		//jQuery( document ).ready(function() {
 			jQuery.get("https://ipinfo.io?token=e7e9316dfdc5fa", function (response) {
-				alert(response.city);
+				//alert(response.city);
 			    //console.log("IP: " + response.ip);
 				//console.log("Location: " + response.city + ", " + response.region);
 				if(jQuery("#user_location_country").text()!=response.country) {
