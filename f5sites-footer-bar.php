@@ -26,7 +26,8 @@ function generate_footer() {
 	$brasil_st = array(
 		["BR.F5Sites", "br.f5sites.com", "Serviços para startups no brasil", "Startups services for Brazil", "br.f5sites.com"],
 		["BR.Francisco Mat", "br.franciscomat.com", "Versão brasileira do blog pessoal do CEO e desenvolvedor full stack", "Brazilian version of personal blog of CEO and full stack developer", "br.franciscomat.com"],
-		["Pomodoros", "www.pomodoros.com.br/?lang=pt_BR", "App online de código-aberto para medir tempo de projetos", "Open source online app, time tracker for projects", "www.pomodoros.com.br"],
+		["Pomodoros", "www.pomodoros.com.br/?lang=pt_BR", "App online grátis para medir tempo de projetos", "Free online app, time tracker for projects", "www.pomodoros.com.br"],
+		["Treinamento em Foco", "www.treinamentoemfoco.com.br", "Você e seu time mais produtivos do que nunca", "You and your team are more productive than ever", "www.treinamentoemfoco.com.br/?lang=en_US"],
 		["LojasDoMago", "www.lojasdomago.com.br", "Brazilian online store for costumer goods", "Loja de brindes produtos eletrônicos"],
 		#["Curso de WordPress", "www.f5sites.com/startups-under-development/cursowp/", "WordPress course for brazilian market", "Curso de WordPress para programadores", "www.cursowp.com.br"],
 	);
