@@ -13,7 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 add_action('wp_enqueue_scripts', 'load_scritps_footer');
-add_action("wp_footer", "generate_footer", 12, 2);
+//add_action("wp_footer", "generate_footer", 12, 2);
+add_action("wp_head", "generate_footer", 12, 2);
 
 function generate_footer() {
 	#DOMAIN GROUPS
@@ -23,36 +24,42 @@ function generate_footer() {
 		["Pomodoros Global", "www.pomodoros.com.br/?lang=en_US", "Open source online app, time tracker for projects", "App online de código-aberto para medir tempo de projetos", "www.pomodoros.com.br"],
 		#["Projectimer", "www.f5sites.com/startups/projectimer/", "App for teams and startups track project time", "App para times cronometrarem tempo de projeto", "www.projectimer.com"],
 	);
-	$brasil_st = array(
-		["BR.F5Sites", "br.f5sites.com", "Serviços para startups no brasil", "Startups services for Brazil", "br.f5sites.com"],
-		["BR.Francisco Mat", "br.franciscomat.com", "Versão brasileira do blog pessoal do CEO e desenvolvedor full stack", "Brazilian version of personal blog of CEO and full stack developer", "br.franciscomat.com"],
-		["Pomodoros", "www.pomodoros.com.br/?lang=pt_BR", "App online grátis para medir tempo de projetos", "Free online app, time tracker for projects", "www.pomodoros.com.br"],
-		["Treinamento em Foco", "www.treinamentoemfoco.com.br", "Você e seu time mais produtivos do que nunca", "You and your team are more productive than ever", "www.treinamentoemfoco.com.br/?lang=en_US"],
-		["LojasDoMago", "www.lojasdomago.com.br", "Brazilian online store for costumer goods", "Loja de brindes produtos eletrônicos"],
+	$all_startups = array(
+		["F5 SITES", "www.f5sites.com", "Serviços para startups no brasil", "Startups services for Brazil", "br.f5sites.com"],
+		["FMAT", "www.franciscomat.com", "Versão brasileira do blog pessoal do CEO e desenvolvedor full stack", "Brazilian version of personal blog of CEO and full stack developer", "br.franciscomat.com"],
+		["POMODOROS", "www.pomodoros.com.br", "App online grátis para medir tempo de projetos", "Free online app, time tracker for projects", "www.pomodoros.com.br"],
+		["FOCO", "www.treinamentoemfoco.com.br", "Você e seu time mais produtivos do que nunca", "You and your team are more productive than ever", "www.treinamentoemfoco.com.br"],
+		["LOJASDOMAGO", "www.lojasdomago.com.br", "Brazilian online store for costumer goods", "Loja de brindes produtos eletrônicos"],
 		#["Curso de WordPress", "www.f5sites.com/startups-under-development/cursowp/", "WordPress course for brazilian market", "Curso de WordPress para programadores", "www.cursowp.com.br"],
 	);
 
 	#GENERATE VIEW
-	$style = "padding-top:6px;background:#222;";
 	?>
-	<div class="container-fluid row-footer">
+	
 	<?php
-	#
-	if(get_option('stylesheet')=="twentyseventeen") {
+	$style = "padding-top:6px;background:#222;";
+	#var_dump(get_option('stylesheet'));die;
+	if(get_option('stylesheet')=="franciscomat-twentyseventeen") {
 		#franciscomat.com e br.franciscomat.com (extra position:relative;)
 		#alternative	#$sn=$_SERVER['HTTP_HOST'];	#if($sn=="www.franciscomat.com")
-		echo "<div class='col-xs-8 col-md-9' style='".$style."position:relative;'>"; 	
+		echo "<div class='row-container row-container-twentyseventeen' style='".$style."'>"; 	
 	} else  {
-		echo "<div class='col-xs-8 col-md-9' style='".$style."'>"; 
+		echo "<div class='row-container' style='".$style."'>"; 
 	}
-	
+	//<div class='' style="padding-top:6px;background:#222;">
 	?>
+	
 	<style type="text/css">
-		.row-footer {
+		.row-container {
 			background: #222 none repeat scroll 0 0;
 			font-family: Open Sans,sans-serif;
 			min-height: 40px;
 			color: #666;
+		}
+		.row-container-twentyseventeen {
+			width: 100%;
+			position: absolute;
+			z-index: 99;
 		}
 		.divlinks {
 			color: #666;
@@ -71,11 +78,26 @@ function generate_footer() {
 		.alogo {
 			float:left;
 			height: 40px;
-			margin-right: 4px;
+			margin-right: 20px;
 			margin-top: -6px;
+			background: #0365AD;
+			padding-right: 16px;
 		}
 		.alogo:hover {
-			background: #0365AD !important;
+			background: #000;
+			color: #FFF
+		}
+
+		.alogo:before {
+			content: "";
+			display: block;
+			width: 21px;
+			height: 40px;
+			position: absolute;
+			top: 0;
+			transform: skew(-25deg, 0deg);
+			background: #024779;
+			left: 104px;
 		}
 
 		.alink {
@@ -84,6 +106,7 @@ function generate_footer() {
 			text-decoration:none;
 			font-weight: 100;
 			text-decoration: none;
+			letter-spacing: -1px;
 		}
 		.alink:hover {
 			color: #549ED1 !important;
@@ -120,7 +143,8 @@ function generate_footer() {
 	}
 	?>
 
-	<a href="https://www.f5sites.com/startups-navigator/" class="alogo" data-toggle='popover' data-placement='top' title="F5 Sites Startups Navigator" data-trigger='hover' data-content="Portuguese: Navegador de Startups F5 Sites"><img src='<?php echo plugins_url( "f5sites-2016-logo-conceito(branco)2x-not.png", __FILE__ ); ?>' alt="F5 Sites" /></a>
+	<a href="https://www.f5sites.com/startups-navigator/" class="alogo" data-toggle='popover' data-placement='bottom' title="F5 Sites Startups Navigator" data-trigger='hover' data-content="Portuguese: Navegador de Startups F5 Sites"><img src='<?php echo plugins_url( "f5sites-2016-logo-conceito(branco)2x-not.png", __FILE__ ); ?>' alt="F5 Sites" /></a>
+	
 	<?php 
 	$location="";
 	#var_dump(class_exists("WC_Geolocation"));
@@ -161,27 +185,27 @@ function generate_footer() {
 		$local = "en_US";
 	}
 	
-	if($local=="PT" || $local=="BR" || $local=="pt" || $local=="pt_BR" || $local=="pt_PT") { ?>
+	#if($local=="PT" || $local=="BR" || $local=="pt" || $local=="pt_BR" || $local=="pt_PT") { ?>
 		<!--a href="https://br.f5sites.com/startups-brasil/" data-toggle='popover' data-placement='top' title="F5 Sites startups for Brazil" data-trigger='hover' data-content="Portuguese: F5 Sites startups para o Brasil"></a-->
-		<div class="showed-links">
+		<span class="showed-links">
 			<img src="<?php echo plugins_url("br.png",__FILE__);?>" style="display: inline;" alt="BR">
-			<?php fore($brasil_st);	?>
-		</div>
-		<div class="aditional-links">
+			<?php fore($all_startups);	?>
+		</span>
+		<span class="aditional-links">
 			<img src="<?php echo plugins_url("us.png",__FILE__);?>" style="display: inline;" alt="US">
-			<?php fore($global_st);	?>
-		</div>
-	<?php } else { ?>
+			<?php fore($all_startups);	?>
+		</span>
+	<?php /* } else { ?>
 		<!--a href="https://www.f5sites.com/startups/" data-toggle='popover' data-placement='top' title="F5 Sites global startups" data-trigger='hover' data-content="Portuguese: F5 Sites startups de classe global"></a-->
 		<div class="showed-links">
 			<img src="<?php echo plugins_url("us.png",__FILE__);?>" style="display: inline;" alt="US">
-			<?php fore($global_st);	?>
+			<?php fore($all_startups);	?>
 		</div>
 		<div class="aditional-links">
 			<img src="<?php echo plugins_url("br.png",__FILE__);?>" style="display: inline;" alt="BR">
-			<?php fore($brasil_st);	?>
+			<?php fore($all_startups);	?>
 		</div>
-	<?php }	?>
+	<?php }	*/ ?>
 	
 	<?php
 	#var_dump($local);die;
@@ -194,46 +218,48 @@ function generate_footer() {
 		fore($in_project);
 	}*/
 	?>
+	
+		<div class="hidden-sm hidden-xs hidden-md" style="padding-right: 10px; float: right;">
+			
+			<!--span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span-->
+			<!--svg class="icon icon-location2">
+				<use xlink:href="<?php echo plugins_url('/location.svg', __FILE__) ?>#icon-location2"></use>
+			</svg-->
+			<!--img src="<?php echo plugins_url('/location.svg', __FILE__) ?>"-->
+			<img src="<?php echo plugins_url('assets/location-icon-map-png-location-24-128.png', __FILE__) ?>"  alt="Pin" style="float: left; margin-top: 3px;">
+			<span id="user_location_city" style="display: none;"></span> 
+			<span id="user_location_region"></span>, 
+			<span id="user_location_country"><?php 
+				if(isset($location['country']))
+					echo $location['country'];
+				else
+					echo $local;
+				?>
+			</span>
+			
+			
+		</div>
+	
 	</div>
-	<div class="col-xs-4 col-md-3" style="padding-top: 6px;">
-		<p>
-		<!--span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span-->
-		<!--svg class="icon icon-location2">
-			<use xlink:href="<?php echo plugins_url('/location.svg', __FILE__) ?>#icon-location2"></use>
-		</svg-->
-		<!--img src="<?php echo plugins_url('/location.svg', __FILE__) ?>"-->
-		<img src="<?php echo plugins_url('assets/location-icon-map-png-location-24-128.png', __FILE__) ?>"  alt="Pin">
-		<span id="user_location_city"></span>, 
-		<span id="user_location_region"></span>, 
-		<span id="user_location_country"><?php 
-			if(isset($location['country']))
-				echo $location['country'];
-			else
-				echo $local;
-			?>
-		</span>
-		
-		</p>
-	</div>
-	</div>
+
 	<script type="text/javascript">
-		jQuery(function () {
+		/*jQuery(function () {
 			jQuery('[data-toggle="popover"]').popover();
-			/*****************/
+			
 			if(jQuery( ".storefront-handheld-footer-bar").length) {
 				jQuery(".storefront-handheld-footer-bar").appendTo(document.body);
 				if(jQuery(".storefront-handheld-footer-bar").is(":visible"));
-					jQuery(".row-footer").css("margin-bottom", "60px");
+					jQuery(".row-container").css("margin-bottom", "60px");
 			}
-			/*****************/
+			
 			jQuery(".showed-links img").hover(function(){
 				jQuery(".aditional-links").show(200);
 			})
-			jQuery(".row-footer").mouseleave(function() {
+			jQuery(".row-container").mouseleave(function() {
 				jQuery(".aditional-links").hide(200);
 			});
 			
-		})
+		})*/
 	</script>
 	<?php
 }
@@ -265,7 +291,7 @@ function fore($names_links_array) {
 			}	
 		}
 		echo " | ";
-			echo "<a href='https://".$item[1]."' $ns class='alink'  data-toggle='popover' data-placement='top' title='".$item[2].$nt."' data-trigger='hover' data-content='".$item[3].$ntp."' >".$item[0]."</a>";
+			echo "<a href='https://".$item[1]."' $ns class='alink'  data-toggle='popover' data-placement='bottom' title='".$item[2].$nt."' data-trigger='hover' data-content='".$item[3].$ntp."' >".$item[0]."</a>";
 		#echo "F5 SITES WORDPRESS PHP WP MYSQL MANAGER";
 		#echo "Settings: localdatabase name: <- PROCEED -> Remote name";
 		#echo do_shortcode('');
