@@ -53,11 +53,11 @@ function generate_footer() {
 		.row-container {
 			background: #222 none repeat scroll 0 0;
 			font-family: Open Sans,sans-serif;
-			min-height: 36px;
+			min-height: 32px;
 			color: #666;
 			padding-top:6px;
 			background:#222;
-			font-size: 14px;
+			font-size: 13px;
 		}
 		.row-container-twentyseventeen {
 			width: 100%;
@@ -71,7 +71,7 @@ function generate_footer() {
 			line-height: 15px;
 			*/
 			font-size: 12px;
-			line-height: 36px;
+			line-height: 32px;
 			font-weight: 100;
 			/*min-height: 40px;
 			/*padding-top: 5px;*/
@@ -80,9 +80,9 @@ function generate_footer() {
 		}
 		.alogo {
 			float:left;
-			height: 36px;
+			height: 32px;
 			margin-right: 20px;
-			margin-top: -6px;
+			margin-top: -8px;
 			background: #024779;
 			padding-right: 16px;
 		}
