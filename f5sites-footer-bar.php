@@ -37,7 +37,7 @@ function generate_footer() {
 	?>
 	
 	<?php
-	$style = "padding-top:6px;background:#222;";
+	#$style = "padding-top:6px;background:#222;";
 	#var_dump(get_option('stylesheet'));die;
 	if(get_option('stylesheet')=="franciscomat-twentyseventeen") {
 		#franciscomat.com e br.franciscomat.com (extra position:relative;)
@@ -53,8 +53,11 @@ function generate_footer() {
 		.row-container {
 			background: #222 none repeat scroll 0 0;
 			font-family: Open Sans,sans-serif;
-			min-height: 40px;
+			min-height: 36px;
 			color: #666;
+			padding-top:6px;
+			background:#222;
+			font-size: 14px;
 		}
 		.row-container-twentyseventeen {
 			width: 100%;
@@ -77,10 +80,10 @@ function generate_footer() {
 		}
 		.alogo {
 			float:left;
-			height: 40px;
+			height: 36px;
 			margin-right: 20px;
 			margin-top: -6px;
-			background: #0365AD;
+			background: #024779;
 			padding-right: 16px;
 		}
 		.alogo:hover {
@@ -92,11 +95,11 @@ function generate_footer() {
 			content: "";
 			display: block;
 			width: 21px;
-			height: 40px;
+			height: 36px;
 			position: absolute;
 			top: 0;
 			transform: skew(-25deg, 0deg);
-			background: #024779;
+			background: #02385f;
 			left: 104px;
 		}
 
