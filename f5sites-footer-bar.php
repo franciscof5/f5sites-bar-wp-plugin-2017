@@ -75,7 +75,7 @@ function generate_footer() {
 			content: "";
 			display: block;
 			width: 21px;
-			height: 36px;
+			height: 32px;
 			position: absolute;
 			top: 0;
 			transform: skew(-25deg, 0deg);
@@ -90,6 +90,7 @@ function generate_footer() {
 			font-weight: 100;
 			text-decoration: none;
 			letter-spacing: -1px;
+			font-weight: 600;
 		}
 		.alink:hover {
 			color: #549ED1 !important;
