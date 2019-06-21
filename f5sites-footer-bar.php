@@ -17,38 +17,18 @@ add_action('wp_enqueue_scripts', 'load_scritps_footer');
 add_action("wp_head", "generate_footer", 12, 2);
 
 function generate_footer() {
-	#DOMAIN GROUPS
-	$global_st = array(
-		["F5Sites", "www.f5sites.com", "IT Services For Global Startups", "Serviços para startups globais", "www.f5sites.com"],
-		["Francisco Mat", "www.franciscomat.com", "Personal blog of CEO and full stack developer", "Blog pessoal do CEO e desenvolvedor full stack", "www.franciscomat.com"],
-		["Pomodoros Global", "www.pomodoros.com.br/?lang=en_US", "Open source online app, time tracker for projects", "App online de código-aberto para medir tempo de projetos", "www.pomodoros.com.br"],
-		#["Projectimer", "www.f5sites.com/startups/projectimer/", "App for teams and startups track project time", "App para times cronometrarem tempo de projeto", "www.projectimer.com"],
-	);
 	$all_startups = array(
-		["F5 SITES", "www.f5sites.com", "Serviços para startups no brasil", "Startups services for Brazil", "br.f5sites.com"],
-		["FMAT", "www.franciscomat.com", "Versão brasileira do blog pessoal do CEO e desenvolvedor full stack", "Brazilian version of personal blog of CEO and full stack developer", "br.franciscomat.com"],
-		["POMODOROS", "www.pomodoros.com.br", "App online grátis para medir tempo de projetos", "Free online app, time tracker for projects", "www.pomodoros.com.br"],
-		["FOCO", "www.treinamentoemfoco.com.br", "Você e seu time mais produtivos do que nunca", "You and your team are more productive than ever", "www.treinamentoemfoco.com.br"],
-		["LOJASDOMAGO", "www.lojasdomago.com.br", "Brazilian online store for costumer goods", "Loja de brindes produtos eletrônicos"],
-		#["Curso de WordPress", "www.f5sites.com/startups-under-development/cursowp/", "WordPress course for brazilian market", "Curso de WordPress para programadores", "www.cursowp.com.br"],
+	["F5 SITES", "www.f5sites.com", "Serviços para startups no brasil", "Startups services for Brazil", "br.f5sites.com"],
+	["FMAT", "www.franciscomat.com", "Versão brasileira do blog pessoal do CEO e desenvolvedor full stack", "Brazilian version of personal blog of CEO and full stack developer", "br.franciscomat.com"],
+	["POMODOROS", "www.pomodoros.com.br", "App online grátis para medir tempo de projetos", "Free online app, time tracker for projects", "www.pomodoros.com.br"],
+	["FOCO", "www.treinamentoemfoco.com.br", "Você e seu time mais produtivos do que nunca", "You and your team are more productive than ever", "www.treinamentoemfoco.com.br"],
+	["LOJASDOMAGO", "www.lojasdomago.com.br", "Brazilian online store for costumer goods", "Loja de brindes produtos eletrônicos"],
+	#["Curso de WordPress", "www.f5sites.com/startups-under-development/cursowp/", "WordPress course for brazilian market", "Curso de WordPress para programadores", "www.cursowp.com.br"],
 	);
 
-	#GENERATE VIEW
-	?>
-	
-	<?php
-	#$style = "padding-top:6px;background:#222;";
 	#var_dump(get_option('stylesheet'));die;
-	if(get_option('stylesheet')=="franciscomat-twentyseventeen") {
-		#franciscomat.com e br.franciscomat.com (extra position:relative;)
-		#alternative	#$sn=$_SERVER['HTTP_HOST'];	#if($sn=="www.franciscomat.com")
-		echo "<div class='row-container row-container-twentyseventeen' style='".$style."'>"; 	
-	} else  {
-		echo "<div class='row-container' style='".$style."'>"; 
-	}
-	//<div class='' style="padding-top:6px;background:#222;">
-	?>
 	
+	?>
 	<style type="text/css">
 		.row-container {
 			background: #222 none repeat scroll 0 0;
@@ -80,7 +60,7 @@ function generate_footer() {
 		}
 		.alogo {
 			float:left;
-			height: 32px;
+			height: 34px;
 			margin-right: 20px;
 			margin-top: -8px;
 			background: #024779;
@@ -126,6 +106,10 @@ function generate_footer() {
 			min-width: 490px;
 			/*width: 100%;*/
 		}
+		.contain-languages a {
+			float: right;
+			margin:0 4px;
+		}
 		/***/
 		.icon {
 			display: inline-block;
@@ -137,92 +121,29 @@ function generate_footer() {
 		}
 	</style>
 
+	<?php if(get_option('stylesheet')=="franciscomat-twentyseventeen") { ?>
+		<div class='row-container row-container-twentyseventeen'> 	
+	<?php } else  { ?>
+		<div class='row-container'>
+	<?php } ?>
+
 	<?php
     if(function_exists('cp_displayPoints')) { ?>
 		<div style="background: #982 none repeat scroll 0 0; border: 4px dashed #fff; border-radius: 4px; color: #fff; float: right; font-size: 14px; margin-left: 10px; min-height: 30px; min-width: 60px; padding: 4px;" data-toggle='popover' data-placement='top' title='"You F Cash balance, earn point using our services and spent in our virtual stores' data-trigger='hover' data-content='Portuguese: balanço F Cash, ganhe pontos usando nossos serviços e gaste em nossas lojas virtuais'>$ 
     	<?php cp_displayPoints(get_current_user_id()); ?>
-    </div>
-    <?php
-	}
-	?>
+    	</div> <?php
+	} ?>
 
 	<a href="https://www.f5sites.com/startups-navigator/" class="alogo" data-toggle='popover' data-placement='bottom' title="F5 Sites Startups Navigator" data-trigger='hover' data-content="Portuguese: Navegador de Startups F5 Sites"><img src='<?php echo plugins_url( "f5sites-2016-logo-conceito(branco)2x-not.png", __FILE__ ); ?>' alt="F5 Sites" /></a>
 	
-	<?php 
-	$location="";
-	#var_dump(class_exists("WC_Geolocation"));
-	if(class_exists("WC_Geolocation")) {
-		$location = WC_Geolocation::geolocate_ip();
-		#var_dump($location);
-		//$location['city'].$location['region']
-		$local = $location['country'];
-	} /*else {
-		$local = "US";
-		#die;
-	}*/
-	if(!class_exists("WC_Geolocation") || $location["city"]=="") {
-		#if(gethostname()!="note-samsung") ?>
-		<script type="text/javascript">
-		//jQuery( document ).ready(function() {
-			jQuery.get("https://ipinfo.io?token=e7e9316dfdc5fa", function (response) {
-				//alert(response.city);
-			    //console.log("IP: " + response.ip);
-				//console.log("Location: " + response.city + ", " + response.region);
-				if(jQuery("#user_location_country").text()!=response.country) {
-					//alert("geolocated ip from remote is different then woocommerce");
-				}
-				jQuery("#user_location_city").text(response.city);
-				jQuery("#user_location_region").text(response.region);
-				jQuery("#user_location_country").text(response.country);
-				
-			}, "jsonp");
-		//}
-		</script>
-		
-	<?php }
+	<span class="showed-links">
+		<img src="<?php echo plugins_url("br.png",__FILE__);?>" style="display: inline;" alt="BR">
+		<?php fore($all_startups);	?>
+	</span>
+	
+	
 
-	if(!$local) {
-		if(function_exists("locale_accept_from_http"))
-		$local = locale_accept_from_http($_SERVER['HTTP_ACCEPT_LANGUAGE']);
-		else
-		$local = "en_US";
-	}
-	
-	#if($local=="PT" || $local=="BR" || $local=="pt" || $local=="pt_BR" || $local=="pt_PT") { ?>
-		<!--a href="https://br.f5sites.com/startups-brasil/" data-toggle='popover' data-placement='top' title="F5 Sites startups for Brazil" data-trigger='hover' data-content="Portuguese: F5 Sites startups para o Brasil"></a-->
-		<span class="showed-links">
-			<img src="<?php echo plugins_url("br.png",__FILE__);?>" style="display: inline;" alt="BR">
-			<?php fore($all_startups);	?>
-		</span>
-		<span class="aditional-links">
-			<img src="<?php echo plugins_url("us.png",__FILE__);?>" style="display: inline;" alt="US">
-			<?php fore($all_startups);	?>
-		</span>
-	<?php /* } else { ?>
-		<!--a href="https://www.f5sites.com/startups/" data-toggle='popover' data-placement='top' title="F5 Sites global startups" data-trigger='hover' data-content="Portuguese: F5 Sites startups de classe global"></a-->
-		<div class="showed-links">
-			<img src="<?php echo plugins_url("us.png",__FILE__);?>" style="display: inline;" alt="US">
-			<?php fore($all_startups);	?>
-		</div>
-		<div class="aditional-links">
-			<img src="<?php echo plugins_url("br.png",__FILE__);?>" style="display: inline;" alt="BR">
-			<?php fore($all_startups);	?>
-		</div>
-	<?php }	*/ ?>
-	
-	<?php
-	#var_dump($local);die;
-	/*###############
-	<a href="https://www.f5sites.com/startups-under-development/" class="alink" data-toggle='popover' data-placement='top' title="F5 Sites startups Under development" data-trigger='hover' data-content="Portuguese: F5 Sites startups em desenvolvimento"><img src="<?php echo plugins_url("under-dev-icon.png",__FILE__);?>" style="display: inline;"></a>
-	<?php fore($under_development);
-	
-	/*if(current_user_can('administrator')) {
-		echo " In project: ";
-		fore($in_project);
-	}*/
-	?>
-	
-		<div class="hidden-sm hidden-xs hidden-md" style="padding-right: 10px; float: right;">
+		<div class="hidden-sm hidden-xs pull-right" style="padding-right: 10px;">
 			
 			<!--span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span-->
 			<!--svg class="icon icon-location2">
@@ -232,19 +153,23 @@ function generate_footer() {
 			<img src="<?php echo plugins_url('assets/location-icon-map-png-location-24-128.png', __FILE__) ?>"  alt="Pin" style="float: left; margin-top: 3px;">
 			<span id="user_location_city" style="display: none;"></span> 
 			<span id="user_location_region"></span>, 
-			<span id="user_location_country"><?php 
-				if(isset($location['country']))
+			<span id="user_location_country">
+				<?php if(isset($location['country']))
 					echo $location['country'];
 				else
 					echo $local;
 				?>
-			</span>
-			
-			
+			</span>	
 		</div>
-	
+
+		<?php if(function_exists('smartlang_show_lang_options')) { ?>
+		<div class="contain-languages pull-right">
+		<?php smartlang_show_lang_options(true); ?>
+	<?php } ?>
+
 	</div>
 
+	</div>
 	<script type="text/javascript">
 		/*jQuery(function () {
 			jQuery('[data-toggle="popover"]').popover();
@@ -269,6 +194,7 @@ function generate_footer() {
 function fore($names_links_array) {
 	#STYLES	
 	$s=$_SERVER['HTTP_HOST'];
+	#$names_links_array = $all_startups;
 	#$s = 
 	#echo $s;
 	#var_dump($names_links_array);
@@ -349,5 +275,83 @@ $global_st = array(
 		["BR Pomodoros", "www.f5sites.com/startups-brasil/pomodoros", "Open source online app, time tracker for projects", "App online de código-aberto para medir tempo de projetos", "www.pomodoros.com.br"],
 		["Curso de WordPress", "www.f5sites.com/startups-under-development/cursowp/", "WordPress course for brazilian market", "Curso de WordPress para programadores", "www.cursowp.com.br"],
 		
-	);*/
+	);
 	#["Startups", "www.f5sites.com/startups", "F5 Sites sponsored startups", "Conheça as startups patrocinadas pela F5Sites"],
+
+	#DOMAIN GROUPS
+	$global_st = array(
+		["F5Sites", "www.f5sites.com", "IT Services For Global Startups", "Serviços para startups globais", "www.f5sites.com"],
+		["Francisco Mat", "www.franciscomat.com", "Personal blog of CEO and full stack developer", "Blog pessoal do CEO e desenvolvedor full stack", "www.franciscomat.com"],
+		["Pomodoros Global", "www.pomodoros.com.br/?lang=en_US", "Open source online app, time tracker for projects", "App online de código-aberto para medir tempo de projetos", "www.pomodoros.com.br"],
+		#["Projectimer", "www.f5sites.com/startups/projectimer/", "App for teams and startups track project time", "App para times cronometrarem tempo de projeto", "www.projectimer.com"],
+	);
+<?php 
+	$location="";
+	#var_dump(class_exists("WC_Geolocation"));
+	if(class_exists("WC_Geolocation")) {
+		$location = WC_Geolocation::geolocate_ip();
+		#var_dump($location);
+		//$location['city'].$location['region']
+		$local = $location['country'];
+	} /*else {
+		$local = "US";
+		#die;
+	}*
+	if(!class_exists("WC_Geolocation") || $location["city"]=="") {
+		#if(gethostname()!="note-samsung") ?>
+		<script type="text/javascript">
+		//jQuery( document ).ready(function() {
+			jQuery.get("https://ipinfo.io?token=e7e9316dfdc5fa", function (response) {
+				//alert(response.city);
+			    //console.log("IP: " + response.ip);
+				//console.log("Location: " + response.city + ", " + response.region);
+				if(jQuery("#user_location_country").text()!=response.country) {
+					//alert("geolocated ip from remote is different then woocommerce");
+				}
+				jQuery("#user_location_city").text(response.city);
+				jQuery("#user_location_region").text(response.region);
+				jQuery("#user_location_country").text(response.country);
+				
+			}, "jsonp");
+		//}
+		</script>
+		
+	<?php }
+
+	if(!$local) {
+		if(function_exists("locale_accept_from_http"))
+		$local = locale_accept_from_http($_SERVER['HTTP_ACCEPT_LANGUAGE']);
+		else
+		$local = "en_US";
+	}
+	
+	#if($local=="PT" || $local=="BR" || $local=="pt" || $local=="pt_BR" || $local=="pt_PT") { ?>
+		<!--a href="https://br.f5sites.com/startups-brasil/" data-toggle='popover' data-placement='top' title="F5 Sites startups for Brazil" data-trigger='hover' data-content="Portuguese: F5 Sites startups para o Brasil"></a-->
+
+		<?php /* } else { ?>
+	<span class="aditional-links">
+		<img src="<?php echo plugins_url("us.png",__FILE__);?>" style="display: inline;" alt="US">
+		<?php fore($all_startups);	?>
+	</span>
+		<!--a href="https://www.f5sites.com/startups/" data-toggle='popover' data-placement='top' title="F5 Sites global startups" data-trigger='hover' data-content="Portuguese: F5 Sites startups de classe global"></a-->
+		<div class="showed-links">
+			<img src="<?php echo plugins_url("us.png",__FILE__);?>" style="display: inline;" alt="US">
+			<?php fore($all_startups);	?>
+		</div>
+		<div class="aditional-links">
+			<img src="<?php echo plugins_url("br.png",__FILE__);?>" style="display: inline;" alt="BR">
+			<?php fore($all_startups);	?>
+		</div>
+	<?php }	*/ ?>
+	
+	<?php
+	#var_dump($local);die;
+	/*###############
+	<a href="https://www.f5sites.com/startups-under-development/" class="alink" data-toggle='popover' data-placement='top' title="F5 Sites startups Under development" data-trigger='hover' data-content="Portuguese: F5 Sites startups em desenvolvimento"><img src="<?php echo plugins_url("under-dev-icon.png",__FILE__);?>" style="display: inline;"></a>
+	<?php fore($under_development);
+	
+	/*if(current_user_can('administrator')) {
+		echo " In project: ";
+		fore($in_project);
+	}*/
+	?>
