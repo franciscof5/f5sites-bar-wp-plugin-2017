@@ -40,6 +40,13 @@ function generate_footer() {
 			font-size: 13px;
 			border-bottom: 3px solid #02385f;
 		}
+		.row-container .popover {
+			text-align: center;
+		}
+		.row-container .popover h3 {
+			font-family: Arial !important;
+			color: #333 !important;
+		}
 		.row-container-twentyseventeen {
 			width: 100%;
 			position: absolute;
