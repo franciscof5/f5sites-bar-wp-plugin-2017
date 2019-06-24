@@ -46,6 +46,7 @@ function generate_footer() {
 		.row-container .popover h3 {
 			font-family: Arial !important;
 			color: #333 !important;
+			font-weight: normal;
 		}
 		.row-container-twentyseventeen {
 			width: 100%;
