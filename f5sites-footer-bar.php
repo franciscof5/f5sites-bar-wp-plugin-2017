@@ -38,6 +38,7 @@ function generate_footer() {
 			padding-top:6px;
 			background:#222;
 			font-size: 13px;
+			border-bottom: 3px solid #02385f;
 		}
 		.row-container-twentyseventeen {
 			width: 100%;
@@ -67,7 +68,7 @@ function generate_footer() {
 			padding-right: 16px;
 		}
 		.alogo:hover {
-			background: #000;
+			background: #02385f;
 			color: #FFF
 		}
 
@@ -137,8 +138,12 @@ function generate_footer() {
 
 	<a href="https://www.f5sites.com/startups-navigator/" class="alogo" data-toggle='popover' data-placement='bottom' title="F5 Sites Startups Navigator" data-trigger='hover' data-content="Portuguese: Navegador de Startups F5 Sites"><img src='<?php echo plugins_url( "f5sites-2016-logo-conceito(branco)2x-not.png", __FILE__ ); ?>' alt="F5 Sites" /></a>
 	
-	<span class="showed-links">
-		<img src="<?php echo plugins_url("br.png",__FILE__);?>" style="display: inline;" alt="BR">
+	<span class="showed-links hidden-xs">
+		<?php if(function_exists("smartlang_generate_flag_links_current")) {
+			smartlang_generate_flag_links_current(false);
+		} else { ?>
+			<img src="<?php echo plugins_url("br.png",__FILE__);?>" style="display: inline;" alt="BR">
+		<?php } ?>
 		<?php fore($all_startups);	?>
 	</span>
 	
@@ -172,14 +177,14 @@ function generate_footer() {
 
 	</div>
 	<script type="text/javascript">
-		/*jQuery(function () {
+		jQuery(function () {
 			jQuery('[data-toggle="popover"]').popover();
 			
-			if(jQuery( ".storefront-handheld-footer-bar").length) {
+			/*if(jQuery( ".storefront-handheld-footer-bar").length) {
 				jQuery(".storefront-handheld-footer-bar").appendTo(document.body);
 				if(jQuery(".storefront-handheld-footer-bar").is(":visible"));
 					jQuery(".row-container").css("margin-bottom", "60px");
-			}
+			}*/
 			
 			jQuery(".showed-links img").hover(function(){
 				jQuery(".aditional-links").show(200);
@@ -188,10 +193,11 @@ function generate_footer() {
 				jQuery(".aditional-links").hide(200);
 			});
 			
-		})*/
+		})
 	</script>
 	<?php
 }
+
 function fore($names_links_array) {
 	#STYLES	
 	$s=$_SERVER['HTTP_HOST'];
@@ -230,6 +236,7 @@ function fore($names_links_array) {
 	
 	<?php
 }
+
 function load_scritps_footer() {
 	wp_enqueue_script('footerjs', plugins_url('/assets/bootstrap.min.js', __FILE__), '', time() );
 	wp_enqueue_style('footercss', plugins_url('/assets/bootstrap.min.css', __FILE__), '', time() );
