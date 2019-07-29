@@ -370,4 +370,4 @@ $global_st = array(
 	/*if(current_user_can('administrator')) {
 		echo " In project: ";
 		fore($in_project);
-	}*/
+	*/
