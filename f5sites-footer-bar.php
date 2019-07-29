@@ -361,9 +361,7 @@ $global_st = array(
 			<img src="<?php echo plugins_url("br.png",__FILE__);?>" style="display: inline;" alt="BR">
 			<?php fore($all_startups);	?>
 		</div>
-	<?php }	*/ ?>
-	
-	<?php
+	<?php }	*/ 
 	#var_dump($local);die;
 	/*###############
 	<a href="https://www.f5sites.com/startups-under-development/" class="alink" data-toggle='popover' data-placement='top' title="F5 Sites startups Under development" data-trigger='hover' data-content="Portuguese: F5 Sites startups em desenvolvimento"><img src="<?php echo plugins_url("under-dev-icon.png",__FILE__);?>" style="display: inline;"></a>
@@ -373,4 +371,3 @@ $global_st = array(
 		echo " In project: ";
 		fore($in_project);
 	}*/
-	?>
