@@ -19,10 +19,10 @@ add_action("wp_head", "generate_footer", 12, 2);
 function generate_footer() {
 	$all_startups = array(
 	["HOST", "www.f5sites.com", "Hospedagem e desenvolvimento profissional para empresas", "Hosting and professional development for companies"],
-	["BLOG", "www.franciscomat.com", "Blog do CEO e dev Francisco Mat", "Blog of CEO and dev Francisco mat"],
 	["POMODOROS", "www.pomodoros.com.br", "App para medir tempo de projetos", "Online time tracker for projects"],
-	["CURSO", "www.treinamentoemfoco.com.br", "Treinamentom em Foco: Você e seu time mais produtivos do que nunca", "Focus Training: You and your team more productive than ever"],
+	["FOCO", "www.treinamentoemfoco.com.br", "Treinamentom em Foco: Você e seu time mais produtivos do que nunca", "Focus Training: You and your team more productive than ever"],
 	["LOJA", "www.lojasdomago.com.br", "Loja de brindes e produtos eletrônicos", "Gift & Electronics Store"],
+	["CEO", "www.franciscomat.com", "Blog do CEO e dev Francisco Mat", "Blog of CEO and dev Francisco mat"],
 	#["Curso de WordPress", "www.f5sites.com/startups-under-development/cursowp/", "WordPress course for brazilian market", "Curso de WordPress para programadores", "www.cursowp.com.br"],
 	);
 
@@ -161,7 +161,20 @@ function generate_footer() {
 	
 
 		<div class="hidden-sm hidden-xs pull-right" style="padding-right: 10px;">
-			
+			<?php
+			if(!class_exists("WC_Geolocation") || $location["city"]=="") { ?>
+				<script type="text/javascript">
+				jQuery.get("https://ipinfo.io?token=e7e9316dfdc5fa", function (response) {
+						if(jQuery("#user_location_country").text()!=response.country) {
+							//alert("geolocated ip from remote is different then woocommerce");
+						}
+						jQuery("#user_location_city").text(response.city);
+						jQuery("#user_location_region").text(response.region);
+						jQuery("#user_location_country").text(response.country);
+				}, "jsonp");
+				</script>
+				
+			<?php } ?>
 			<!--span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span-->
 			<!--svg class="icon icon-location2">
 				<use xlink:href="<?php echo plugins_url('/location.svg', __FILE__) ?>#icon-location2"></use>
