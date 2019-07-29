@@ -35,16 +35,10 @@ function generate_footer() {
 			font-family: Open Sans,sans-serif;
 			min-height: 32px;
 			color: #666;
-			padding-top: 4px;
-			background:#EEE;
+			padding-top:6px;
+			background:#222;
 			font-size: 13px;
-			border-bottom: 4px solid #000;
-		}
-		.row-container:hover {
-			border-color: #03659C;
-		}
-		.row-container:hover .alogo {
-			background: #03659C;
+			border-bottom: 3px solid #02385f;
 		}
 		.row-container .popover {
 			text-align: center;
@@ -77,26 +71,29 @@ function generate_footer() {
 			float:left;
 			height: 34px;
 			margin-right: 20px;
-			margin-top: -6px;
-			background: #000;/*024779*/
+			margin-top: -8px;
+			background: #024779;
 			padding-right: 16px;
 		}
-		
+		.alogo:hover {
+			background: #02385f;
+			color: #FFF
+		}
 
 		.alogo:before {
 			content: "";
 			display: block;
 			width: 21px;
-			height: 29px;
+			height: 32px;
 			position: absolute;
 			top: 0;
 			transform: skew(-25deg, 0deg);
-			background: #888;
+			background: #02385f;
 			left: 104px;
 		}
 
 		.alink {
-			color:#888 !important;
+			color:#CCC !important;
 			font-family: Open Sans,sans-serif;
 			text-decoration:none;
 			font-weight: 100;
@@ -229,7 +226,7 @@ function fore($names_links_array) {
 			#var_dump($s2);
 			#die;
 			if ($s1==$s2) {
-				$ns=' style="color:#03659C !important;" ';#font-weight:100;#549ED1
+				$ns=' style="color:#549ED1 !important;" ';#font-weight:100;
 				$nt=' <you are here>';
 				$ntp=' <você está aqui>';
 			#	echo "<span style='background:#0365AD;border-radius:3px;'>";
