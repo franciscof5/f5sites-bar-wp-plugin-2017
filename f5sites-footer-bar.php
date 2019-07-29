@@ -18,11 +18,11 @@ add_action("wp_head", "generate_footer", 12, 2);
 
 function generate_footer() {
 	$all_startups = array(
-	["F5 SITES", "www.f5sites.com", "Serviços para startups no brasil", "Startups services for Brazil", "br.f5sites.com"],
-	["FMAT", "www.franciscomat.com", "Versão brasileira do blog pessoal do CEO e desenvolvedor full stack", "Brazilian version of personal blog of CEO and full stack developer", "br.franciscomat.com"],
-	["POMODOROS", "www.pomodoros.com.br", "App online grátis para medir tempo de projetos", "Free online app, time tracker for projects", "www.pomodoros.com.br"],
-	["FOCO", "www.treinamentoemfoco.com.br", "Você e seu time mais produtivos do que nunca", "You and your team are more productive than ever", "www.treinamentoemfoco.com.br"],
-	["LOJASDOMAGO", "www.lojasdomago.com.br", "Brazilian online store for costumer goods", "Loja de brindes produtos eletrônicos"],
+	["HOST", "www.f5sites.com", "Hospedagem e desenvolvimento profissional para empresas", "Hosting and professional development for companies"],
+	["BLOG", "www.franciscomat.com", "Blog do CEO e dev Francisco Mat", "Blog of CEO and dev Francisco mat"],
+	["POMODOROS", "www.pomodoros.com.br", "App para medir tempo de projetos", "Online time tracker for projects"],
+	["CURSO", "www.treinamentoemfoco.com.br", "Treinamentom em Foco: Você e seu time mais produtivos do que nunca", "Focus Training: You and your team more productive than ever"],
+	["LOJA", "www.lojasdomago.com.br", "Loja de brindes e produtos eletrônicos", "Gift & Electronics Store"],
 	#["Curso de WordPress", "www.f5sites.com/startups-under-development/cursowp/", "WordPress course for brazilian market", "Curso de WordPress para programadores", "www.cursowp.com.br"],
 	);
 
@@ -227,15 +227,15 @@ function fore($names_links_array) {
 			#die;
 			if ($s1==$s2) {
 				$ns=' style="color:#549ED1 !important;" ';#font-weight:100;
-				$nt=' . < you are here >';
-				$ntp=' . < você está aqui >';
+				$nt=' <you are here>';
+				$ntp=' <você está aqui>';
 			#	echo "<span style='background:#0365AD;border-radius:3px;'>";
 			
 				#echo "<a $ns class='alink'>".$item[0]."</a>";
 			}	
 		}
 		echo " | ";
-			echo "<a href='https://".$item[1]."' $ns class='alink'  data-toggle='popover' data-placement='bottom' title='".$item[2].$nt."' data-trigger='hover' data-content='".$item[3].$ntp."' >".$item[0]."</a>";
+			echo "<a href='https://".$item[1]."' $ns class='alink'  data-toggle='popover' data-placement='bottom' title='".$item[2].$ntp."' data-trigger='hover' data-content='".$item[3].$nt."' >".$item[0]."</a>";
 		#echo "F5 SITES WORDPRESS PHP WP MYSQL MANAGER";
 		#echo "Settings: localdatabase name: <- PROCEED -> Remote name";
 		#echo do_shortcode('');
