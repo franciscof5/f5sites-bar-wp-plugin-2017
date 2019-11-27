@@ -181,7 +181,7 @@ function generate_footer() {
 			</svg-->
 			<!--img src="<?php echo plugins_url('/location.svg', __FILE__) ?>"-->
 			<img src="<?php echo plugins_url('assets/location-icon-map-png-location-24-128.png', __FILE__) ?>"  alt="Pin" style="float: left; margin-top: 3px;">
-			<span id="user_location_city" style="display: none;"></span> 
+			<span id="user_location_city"></span>, 
 			<span id="user_location_region"></span>, 
 			<span id="user_location_country">
 				<?php if(isset($location['country']))
