@@ -162,15 +162,15 @@ function generate_footer() {
 
 		<div class="hidden-sm hidden-xs pull-right" style="padding-right: 10px;">
 			<?php
-			if(!class_exists("WC_Geolocation") || $location["city"]=="") { ?>
+			if(!class_exists("WC_Geolocation") || !isset($location)) { ?>
 				<script type="text/javascript">
 				jQuery.get("https://ipinfo.io?token=e7e9316dfdc5fa", function (response) {
-						if(jQuery("#user_location_country").text()!=response.country) {
-							//alert("geolocated ip from remote is different then woocommerce");
-						}
-						jQuery("#user_location_city").text(response.city);
-						jQuery("#user_location_region").text(response.region);
-						jQuery("#user_location_country").text(response.country);
+					if(jQuery("#user_location_country").text()!=response.country) {
+						//alert("geolocated ip from remote is different then woocommerce");
+					}
+					jQuery("#user_location_city").text(response.city+", ");
+					jQuery("#user_location_region").text(response.region+", ");
+					jQuery("#user_location_country").text(response.country);
 				}, "jsonp");
 				</script>
 				
@@ -181,13 +181,13 @@ function generate_footer() {
 			</svg-->
 			<!--img src="<?php echo plugins_url('/location.svg', __FILE__) ?>"-->
 			<img src="<?php echo plugins_url('assets/location-icon-map-png-location-24-128.png', __FILE__) ?>"  alt="Pin" style="float: left; margin-top: 3px;">
-			<span id="user_location_city"></span>, 
-			<span id="user_location_region"></span>, 
+			<span id="user_location_city"></span>
+			<span id="user_location_region"></span>
 			<span id="user_location_country">
 				<?php if(isset($location['country']))
 					echo $location['country'];
 				else
-					echo $local;
+					echo "Unkown location";
 				?>
 			</span>	
 		</div>
