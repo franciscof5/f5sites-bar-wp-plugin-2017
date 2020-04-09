@@ -18,11 +18,11 @@ add_action("wp_head", "generate_footer", 12, 2);
 
 function generate_footer() {
 	$all_startups = array(
-	["HOST", "www.f5sites.com", "Hospedagem e desenvolvimento profissional para empresas", "Hosting and professional development for companies"],
-	["POMODOROS", "www.pomodoros.com.br", "App para medir tempo de projetos", "Online time tracker for projects"],
-	["FOCO", "www.treinamentoemfoco.com.br", "Treinamentom em Foco: Você e seu time mais produtivos do que nunca", "Focus Training: You and your team more productive than ever"],
-	["LOJA", "www.lojasdomago.com.br", "Loja de brindes e produtos eletrônicos", "Gift & Electronics Store"],
-	["CEO", "www.franciscomat.com", "Blog do CEO e dev Francisco Mat", "Blog of CEO and dev Francisco mat"],
+	["F5 Sites", "www.f5sites.com", "Hospedagem e desenvolvimento profissional para empresas", "Hosting and professional development for companies"],
+	["Pomodoros", "www.pomodoros.com.br", "App para medir tempo de projetos", "Online time tracker for projects"],
+	["Treinamento em Foco", "www.treinamentoemfoco.com.br", "Treinamentom em Foco: Você e seu time mais produtivos do que nunca", "Focus Training: You and your team more productive than ever"],
+	#["LOJA", "www.lojasdomago.com.br", "Loja de brindes e produtos eletrônicos", "Gift & Electronics Store"],
+	["Francisco Mat", "www.franciscomat.com", "Blog do CEO e dev Francisco Mat", "Blog of CEO and dev Francisco mat"],
 	#["Curso de WordPress", "www.f5sites.com/startups-under-development/cursowp/", "WordPress course for brazilian market", "Curso de WordPress para programadores", "www.cursowp.com.br"],
 	);
 
@@ -32,20 +32,20 @@ function generate_footer() {
 	<style type="text/css">
 		.row-container {
 			background: #222 none repeat scroll 0 0;
-			font-family: Open Sans,sans-serif;
-			min-height: 32px;
+			font-family: open_sansregular,sans-serif;
+			min-height: 34px;
 			color: #666;
 			padding-top: 4px;
-			background:#EEE;
+			background: #e6e6e6; /*#ccc;*/
 			font-size: 13px;
-			border-bottom: 4px solid #000;
+			border-bottom: 6px solid #e6e6e6;
 		}
-		.row-container:hover {
-			border-color: #03659C;
+		/*.row-container:hover {
+			border-color: #222;
 		}
 		.row-container:hover .alogo {
-			background: #03659C;
-		}
+			background: #222;
+		}*/
 		.row-container .popover {
 			text-align: center;
 		}
@@ -61,7 +61,7 @@ function generate_footer() {
 		}
 		.divlinks {
 			color: #666;
-			font-family: Open Sans,sans-serif;
+			font-family: open_sansregular,sans-serif;
 			/*font-size: 10px;
 			line-height: 15px;
 			*/
@@ -76,14 +76,15 @@ function generate_footer() {
 		.alogo {
 			float:left;
 			height: 34px;
-			margin-right: 20px;
 			margin-top: -6px;
-			background: #000;/*024779*/
-			padding-right: 16px;
+			background: #e6e6e6;/*024779*/
+			overflow: hidden;
 		}
-		
-
-		.alogo:before {
+		.alogo img {
+			max-width: 66%;
+			margin: 2% 0 0 15%;
+		}
+		/*.alogo:before {
 			content: "";
 			display: block;
 			width: 21px;
@@ -93,11 +94,11 @@ function generate_footer() {
 			transform: skew(-25deg, 0deg);
 			background: #888;
 			left: 104px;
-		}
+		}*/
 
 		.alink {
-			color:#888 !important;
-			font-family: Open Sans,sans-serif;
+			color:#666 !important;
+			font-family: open_sansregular,sans-serif;
 			text-decoration:none;
 			font-weight: 100;
 			text-decoration: none;
@@ -105,8 +106,17 @@ function generate_footer() {
 			font-weight: 600;
 		}
 		.alink:hover {
-			color: #549ED1 !important;
+			color: #03659c !important;
 			text-decoration: none;
+		}
+		.separator {
+			-moz-transform: rotate(-30deg);
+		    -ms-transform: rotate(-30deg);
+		    -o-transform: rotate(-30deg);
+		    -webkit-transform: rotate(-30deg);
+		    transform: rotate(-30deg);
+		    color: #AAA;
+		    margin: 0 2px;		 
 		}
 		.aditional-links {
 			background-color: #111;
@@ -147,13 +157,13 @@ function generate_footer() {
     	</div> <?php
 	} ?>
 
-	<a href="https://www.f5sites.com/startups-navigator/" class="alogo" data-toggle='popover' data-placement='bottom' title="F5 Sites Startups Navigator" data-trigger='hover' data-content="Portuguese: Navegador de Startups F5 Sites"><img src='<?php echo plugins_url( "f5sites-2016-logo-conceito(branco)2x-not.png", __FILE__ ); ?>' alt="F5 Sites" /></a>
+	<a href="https://www.f5sites.com/startups-navigator/" class="alogo" data-toggle='popover' data-placement='bottom' title="F5 Sites Startups Navigator" data-trigger='hover' data-content="Portuguese: Navegador de Startups F5 Sites"><img src='<?php echo plugins_url( "f5sites.com-logo.png", __FILE__ ); ?>' alt="F5 Sites" /></a>
 	
 	<span class="showed-links hidden-xs">
 		<?php if(function_exists("smartlang_generate_flag_links_current")) {
 			smartlang_generate_flag_links_current(false);
 		} else { ?>
-			<img src="<?php echo plugins_url("br.png",__FILE__);?>" style="display: inline;" alt="BR">
+			<img src="<?php echo plugins_url("assets/br.png",__FILE__);?>" style="display: inline;" alt="BR">
 		<?php } ?>
 		<?php fore($all_startups);	?>
 	</span>
@@ -164,7 +174,7 @@ function generate_footer() {
 			<?php
 			if(!class_exists("WC_Geolocation") || !isset($location)) { ?>
 				<script type="text/javascript">
-				jQuery.get("https://ipinfo.io?token=e7e9316dfdc5fa", function (response) {
+				jQuery.get("https/:f/ipinfo.io?token=e7e9316dfdc5fa", function (response) {
 					if(jQuery("#user_location_country").text()!=response.country) {
 						//alert("geolocated ip from remote is different then woocommerce");
 					}
@@ -229,6 +239,7 @@ function fore($names_links_array) {
 	#$s = 
 	#echo $s;
 	#var_dump($names_links_array);
+	$i=0;
 	foreach ($names_links_array as $item) :
 		$ns=$nt=$ntp='';
 		if(isset($item[1])) {
@@ -250,8 +261,11 @@ function fore($names_links_array) {
 				#echo "<a $ns class='alink'>".$item[0]."</a>";
 			}	
 		}
-		echo " | ";
-			echo "<a href='https://".$item[1]."' $ns class='alink'  data-toggle='popover' data-placement='bottom' title='".$item[2].$ntp."' data-trigger='hover' data-content='".$item[3].$nt."' >".$item[0]."</a>";
+		#if($i>0)
+			echo " <span class='separator'>|</span> ";
+		
+		echo "<a href='https://".$item[1]."' $ns class='alink'  data-toggle='popover' data-placement='bottom' title='".$item[2].$ntp."' data-trigger='hover' data-content='".$item[3].$nt."' >".$item[0]."</a>";
+		$i++;
 		#echo "F5 SITES WORDPRESS PHP WP MYSQL MANAGER";
 		#echo "Settings: localdatabase name: <- PROCEED -> Remote name";
 		#echo do_shortcode('');
@@ -264,6 +278,7 @@ function fore($names_links_array) {
 function load_scritps_footer() {
 	wp_enqueue_script('footerjs', plugins_url('/assets/bootstrap.min.js', __FILE__), '', time() );
 	wp_enqueue_style('footercss', plugins_url('/assets/bootstrap.min.css', __FILE__), '', time() );
+	wp_enqueue_style('footercss', plugins_url('/assets/font.css', __FILE__), '', time() );
 }
 /*
 $under_development = array(
@@ -362,16 +377,16 @@ $global_st = array(
 
 		<?php /* } else { ?>
 	<span class="aditional-links">
-		<img src="<?php echo plugins_url("us.png",__FILE__);?>" style="display: inline;" alt="US">
+		<img src="<?php echo plugins_url("assets/us.png",__FILE__);?>" style="display: inline;" alt="US">
 		<?php fore($all_startups);	?>
 	</span>
 		<!--a href="https://www.f5sites.com/startups/" data-toggle='popover' data-placement='top' title="F5 Sites global startups" data-trigger='hover' data-content="Portuguese: F5 Sites startups de classe global"></a-->
 		<div class="showed-links">
-			<img src="<?php echo plugins_url("us.png",__FILE__);?>" style="display: inline;" alt="US">
+			<img src="<?php echo plugins_url("assets/us.png",__FILE__);?>" style="display: inline;" alt="US">
 			<?php fore($all_startups);	?>
 		</div>
 		<div class="aditional-links">
-			<img src="<?php echo plugins_url("br.png",__FILE__);?>" style="display: inline;" alt="BR">
+			<img src="<?php echo plugins_url("assets/br.png",__FILE__);?>" style="display: inline;" alt="BR">
 			<?php fore($all_startups);	?>
 		</div>
 	<?php }	*/ 
