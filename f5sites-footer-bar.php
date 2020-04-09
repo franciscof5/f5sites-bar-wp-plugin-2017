@@ -19,11 +19,11 @@ add_action("wp_head", "generate_footer", 12, 2);
 function generate_footer() {
 	$all_startups = array(
 	["F5 Sites", "f5sites.com", "Hospedagem e desenvolvimento profissional para empresas", "Hosting and professional development for companies"],
+	["CursoWP", "cursowp.com.br", "WordPress course for brazilian market", "Curso de WordPress para programadores"],
 	["Pomodoros", "pomodoros.com.br", "App para medir tempo de projetos", "Online time tracker for projects"],
 	["Treinamento em Foco", "treinamentoemfoco.com.br", "Treinamentom em Foco: Você e seu time mais produtivos do que nunca", "Focus Training: You and your team more productive than ever"],
 	#["LOJA", "www.lojasdomago.com.br", "Loja de brindes e produtos eletrônicos", "Gift & Electronics Store"],
 	["Francisco Mat", "franciscomat.com", "Blog do CEO e dev Francisco Mat", "Blog of CEO and dev Francisco mat"],
-	#["Curso de WordPress", "www.f5sites.com/startups-under-development/cursowp/", "WordPress course for brazilian market", "Curso de WordPress para programadores", "www.cursowp.com.br"],
 	);
 
 	#var_dump(get_option('stylesheet'));die;
