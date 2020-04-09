@@ -59,6 +59,9 @@ function generate_footer() {
 			position: absolute;
 			z-index: 99;
 		}
+		.showed-links {
+			line-height: 24px;
+		}
 		.divlinks {
 			color: #666;
 			font-family: open_sansregular,sans-serif;
