@@ -18,11 +18,11 @@ add_action("wp_head", "generate_footer", 12, 2);
 
 function generate_footer() {
 	$all_startups = array(
-	["F5 Sites", "www.f5sites.com", "Hospedagem e desenvolvimento profissional para empresas", "Hosting and professional development for companies"],
-	["Pomodoros", "www.pomodoros.com.br", "App para medir tempo de projetos", "Online time tracker for projects"],
-	["Treinamento em Foco", "www.treinamentoemfoco.com.br", "Treinamentom em Foco: Você e seu time mais produtivos do que nunca", "Focus Training: You and your team more productive than ever"],
+	["F5 Sites", "f5sites.com", "Hospedagem e desenvolvimento profissional para empresas", "Hosting and professional development for companies"],
+	["Pomodoros", "pomodoros.com.br", "App para medir tempo de projetos", "Online time tracker for projects"],
+	["Treinamento em Foco", "treinamentoemfoco.com.br", "Treinamentom em Foco: Você e seu time mais produtivos do que nunca", "Focus Training: You and your team more productive than ever"],
 	#["LOJA", "www.lojasdomago.com.br", "Loja de brindes e produtos eletrônicos", "Gift & Electronics Store"],
-	["Francisco Mat", "www.franciscomat.com", "Blog do CEO e dev Francisco Mat", "Blog of CEO and dev Francisco mat"],
+	["Francisco Mat", "franciscomat.com", "Blog do CEO e dev Francisco Mat", "Blog of CEO and dev Francisco mat"],
 	#["Curso de WordPress", "www.f5sites.com/startups-under-development/cursowp/", "WordPress course for brazilian market", "Curso de WordPress para programadores", "www.cursowp.com.br"],
 	);
 
@@ -255,7 +255,8 @@ function fore($names_links_array) {
 			#var_dump($item[1]);
 			#var_dump($s2);
 			#die;
-			if ($s1==$s2) {
+			//if ($s1==$s2) {
+			if(strpos($s, $item[1])) {
 				$ns=' style="color:#03659C !important;" ';#font-weight:100;#549ED1
 				$nt=' <you are here>';
 				$ntp=' <você está aqui>';
@@ -267,7 +268,7 @@ function fore($names_links_array) {
 		#if($i>0)
 			echo " <span class='separator'>|</span> ";
 		
-		echo "<a href='https://".$item[1]."' $ns class='alink'  data-toggle='popover' data-placement='bottom' title='".$item[2].$ntp."' data-trigger='hover' data-content='".$item[3].$nt."' >".$item[0]."</a>";
+		echo "<a href='https://www.".$item[1]."' $ns class='alink'  data-toggle='popover' data-placement='bottom' title='".$item[2].$ntp."' data-trigger='hover' data-content='".$item[3].$nt."' >".$item[0]."</a>";
 		$i++;
 		#echo "F5 SITES WORDPRESS PHP WP MYSQL MANAGER";
 		#echo "Settings: localdatabase name: <- PROCEED -> Remote name";
