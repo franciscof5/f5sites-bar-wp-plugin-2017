@@ -61,6 +61,7 @@ function generate_footer() {
 		}
 		.showed-links {
 			line-height: 24px;
+			float: left;
 		}
 		.divlinks {
 			color: #666;
@@ -150,6 +151,11 @@ function generate_footer() {
 			stroke: currentColor;
 			fill: currentColor;
 		}
+		@media(max-width: 768px) {
+			.hidden-xs {
+				display: none;
+			}
+		}
 	</style>
 
 	<?php if(get_option('stylesheet')=="franciscomat-twentyseventeen") { ?>
@@ -167,7 +173,7 @@ function generate_footer() {
 
 	<a href="https://www.f5sites.com/startups-navigator/" class="alogo" data-toggle='popover' data-placement='bottom' title="F5 Sites Startups Navigator" data-trigger='hover' data-content="Portuguese: Navegador de Startups F5 Sites"><img src='<?php echo plugins_url( "f5sites.com-logo.png", __FILE__ ); ?>' alt="F5 Sites" /></a>
 	
-	<span class="showed-links hidden-xs">
+	<span class="showed-links hidden-xs d-none d-sm-block">
 		<?php if(function_exists("smartlang_generate_flag_links_current")) {
 			smartlang_generate_flag_links_current(false);
 		} else { ?>
@@ -176,7 +182,7 @@ function generate_footer() {
 		<?php fore($all_startups);	?>
 	</span>
 	
-	<div class="hidden-sm hidden-xs pull-right" style="padding-right: 10px;">
+	<div class="hidden-sm hidden-xs d-none d-sm-block pull-right" style="padding-right: 10px;">
 		<?php
 		if(!class_exists("WC_Geolocation") || !isset($location)) { ?>
 			<script type="text/javascript">
