@@ -177,7 +177,7 @@ function generate_footer() {
 			<?php
 			if(!class_exists("WC_Geolocation") || !isset($location)) { ?>
 				<script type="text/javascript">
-				jQuery.get("https/:f/ipinfo.io?token=e7e9316dfdc5fa", function (response) {
+				jQuery.get("https://ipinfo.io?token=e7e9316dfdc5fa", function (response) {
 					if(jQuery("#user_location_country").text()!=response.country) {
 						//alert("geolocated ip from remote is different then woocommerce");
 					}
