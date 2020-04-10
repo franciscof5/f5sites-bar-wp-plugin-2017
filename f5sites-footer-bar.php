@@ -82,6 +82,9 @@ function generate_footer() {
 			margin-top: -6px;
 			background: #e6e6e6;/*024779*/
 			overflow: hidden;
+			color: #222 !important;
+			min-width: 100px;
+			line-height: 35px;
 		}
 		.alogo img {
 			max-width: 66%;
@@ -134,7 +137,9 @@ function generate_footer() {
 		}
 		.contain-languages a {
 			float: right;
-			margin:0 4px;
+			margin: 0 4px;
+			color: #222;
+			line-height: 22px;
 		}
 		/***/
 		.icon {
@@ -166,63 +171,53 @@ function generate_footer() {
 		<?php if(function_exists("smartlang_generate_flag_links_current")) {
 			smartlang_generate_flag_links_current(false);
 		} else { ?>
-			<img src="<?php echo plugins_url("assets/br.png",__FILE__);?>" style="display: inline;" alt="BR">
+			<img src="<?php echo plugins_url("assets/br.png",__FILE__);?>" style="display: inline;" alt="br">
 		<?php } ?>
 		<?php fore($all_startups);	?>
 	</span>
 	
-	
+	<div class="hidden-sm hidden-xs pull-right" style="padding-right: 10px;">
+		<?php
+		if(!class_exists("WC_Geolocation") || !isset($location)) { ?>
+			<script type="text/javascript">
+				jQuery( document ).ready(function() {
+					jQuery.get("https://ipinfo.io?token=e7e9316dfdc5fa", function (response) {
+						console.log("response", response);
+						if(jQuery("#user_location_country").text()!=response.country) {
+							//alert("geolocated ip from remote is different then woocommerce");
+						}
+						jQuery("#user_location_city").text(response.city+", ");
+						jQuery("#user_location_region").text(response.region+", ");
+						jQuery("#user_location_country").text(response.country);
+					}, "jsonp");
+				})
+			</script>
+			
+		<?php } ?>
+		<img src="<?php echo plugins_url('assets/location-icon-map-png-location-24-128.png', __FILE__) ?>"  alt="Loc:" style="float: left; margin-top: 3px;">
+		<span id="user_location_city"></span>
+		<span id="user_location_region"></span>
+		<span id="user_location_country">
+			<?php if(isset($location['country']))
+				echo $location['country'];
+			else
+				echo "Unkown location";
+			?>
+		</span>
+	</div>
 
-		<div class="hidden-sm hidden-xs pull-right" style="padding-right: 10px;">
-			<?php
-			if(!class_exists("WC_Geolocation") || !isset($location)) { ?>
-				<script type="text/javascript">
-				jQuery.get("https://ipinfo.io?token=e7e9316dfdc5fa", function (response) {
-					if(jQuery("#user_location_country").text()!=response.country) {
-						//alert("geolocated ip from remote is different then woocommerce");
-					}
-					jQuery("#user_location_city").text(response.city+", ");
-					jQuery("#user_location_region").text(response.region+", ");
-					jQuery("#user_location_country").text(response.country);
-				}, "jsonp");
-				</script>
-				
-			<?php } ?>
-			<!--span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span-->
-			<!--svg class="icon icon-location2">
-				<use xlink:href="<?php echo plugins_url('/location.svg', __FILE__) ?>#icon-location2"></use>
-			</svg-->
-			<!--img src="<?php echo plugins_url('/location.svg', __FILE__) ?>"-->
-			<img src="<?php echo plugins_url('assets/location-icon-map-png-location-24-128.png', __FILE__) ?>"  alt="Pin" style="float: left; margin-top: 3px;">
-			<span id="user_location_city"></span>
-			<span id="user_location_region"></span>
-			<span id="user_location_country">
-				<?php if(isset($location['country']))
-					echo $location['country'];
-				else
-					echo "Unkown location";
-				?>
-			</span>	
-		</div>
-
-		<?php if(function_exists('smartlang_show_lang_options')) { ?>
+	<?php if(function_exists('smartlang_show_lang_options')) { ?>
 		<div class="contain-languages pull-right">
-		<?php smartlang_show_lang_options(true); ?>
+			<?php smartlang_show_lang_options(true); ?>
+		</div>
 	<?php } ?>
 
-	</div>
 
 	</div>
 	<script type="text/javascript">
 		jQuery(function () {
 			jQuery('[data-toggle="popover"]').popover();
-			
-			/*if(jQuery( ".storefront-handheld-footer-bar").length) {
-				jQuery(".storefront-handheld-footer-bar").appendTo(document.body);
-				if(jQuery(".storefront-handheld-footer-bar").is(":visible"));
-					jQuery(".row-container").css("margin-bottom", "60px");
-			}*/
-			
+
 			jQuery(".showed-links img").hover(function(){
 				jQuery(".aditional-links").show(200);
 			})
