@@ -17,6 +17,65 @@ add_action('wp_enqueue_scripts', 'load_scritps_footer');
 add_action("wp_head", "generate_footer", 12, 2);
 
 function generate_footer() {
+	if(true!=false) {
+		?>
+		<nav class="navbar navbar-default">
+  <div class="container-fluid">
+	<!-- Brand and toggle get grouped for better mobile display -->
+	<div class="navbar-header">
+	  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		<span class="sr-only">Toggle navigation</span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	  </button>
+	  <a href="https://www.f5sites.com/startups-navigator/" class="alogo navbar-brand" data-toggle='popover' data-placement='bottom' title="F5 Sites Startups Navigator" data-trigger='hover' data-content="Portuguese: Navegador de Startups F5 Sites"><img src='<?php echo plugins_url( "f5sites.com-logo.png", __FILE__ ); ?>' alt="F5 Sites" /></a>
+	</div>
+
+	<!-- Collect the nav links, forms, and other content for toggling -->
+	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	  <ul class="nav navbar-nav">
+		<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+		<li><a href="#">Link</a></li>
+		<li class="dropdown">
+		  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+		  <ul class="dropdown-menu">
+			<li><a href="#">Action</a></li>
+			<li><a href="#">Another action</a></li>
+			<li><a href="#">Something else here</a></li>
+			<li role="separator" class="divider"></li>
+			<li><a href="#">Separated link</a></li>
+			<li role="separator" class="divider"></li>
+			<li><a href="#">One more separated link</a></li>
+		  </ul>
+		</li>
+	  </ul>
+	  <form class="navbar-form navbar-left">
+		<div class="form-group">
+		  <input type="text" class="form-control" placeholder="Search">
+		</div>
+		<button type="submit" class="btn btn-default">Submit</button>
+	  </form>
+	  <ul class="nav navbar-nav navbar-right">
+		<li><a href="#">Link</a></li>
+		<li class="dropdown">
+		  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+		  <ul class="dropdown-menu">
+			<li><a href="#">Action</a></li>
+			<li><a href="#">Another action</a></li>
+			<li><a href="#">Something else here</a></li>
+			<li role="separator" class="divider"></li>
+			<li><a href="#">Separated link</a></li>
+		  </ul>
+		</li>
+	  </ul>
+	</div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+		<?php
+	} else {
+
+	
 	$all_startups = array(
 	["F5 Sites", "f5sites.com", "Hospedagem e desenvolvimento profissional para empresas", "Hosting and professional development for companies"],
 	["CursoWP", "cursowp.com.br", "Curso de WordPress para programadores", "WordPress course for brazilian market"],
@@ -25,9 +84,6 @@ function generate_footer() {
 	#["LOJA", "www.lojasdomago.com.br", "Loja de brindes e produtos eletrônicos", "Gift & Electronics Store"],
 	["Francisco Mat", "franciscomat.com", "Blog do CEO e dev Francisco Mat", "Blog of CEO and dev Francisco mat"],
 	);
-
-	#var_dump(get_option('stylesheet'));die;
-	
 	?>
 	<style type="text/css">
 		.row-container {
@@ -40,12 +96,6 @@ function generate_footer() {
 			font-size: 13px;
 			border-bottom: 6px solid #e6e6e6;
 		}
-		/*.row-container:hover {
-			border-color: #222;
-		}
-		.row-container:hover .alogo {
-			background: #222;
-		}*/
 		.row-container .popover {
 			text-align: center;
 		}
@@ -66,14 +116,9 @@ function generate_footer() {
 		.divlinks {
 			color: #666;
 			font-family: open_sansregular,sans-serif;
-			/*font-size: 10px;
-			line-height: 15px;
-			*/
 			font-size: 12px;
 			line-height: 32px;
 			font-weight: 100;
-			/*min-height: 40px;
-			/*padding-top: 5px;*/
 			text-transform: uppercase;
 			text-align: justify;
 		}
@@ -91,17 +136,6 @@ function generate_footer() {
 			max-width: 66%;
 			margin: 2% 0 0 15%;
 		}
-		/*.alogo:before {
-			content: "";
-			display: block;
-			width: 21px;
-			height: 29px;
-			position: absolute;
-			top: 0;
-			transform: skew(-25deg, 0deg);
-			background: #888;
-			left: 104px;
-		}*/
 
 		.alink {
 			color:#666 !important;
@@ -134,13 +168,21 @@ function generate_footer() {
 			top: -40px;
 			display: none;
 			min-width: 490px;
-			/*width: 100%;*/
 		}
 		.contain-languages a {
 			float: right;
 			margin: 0 4px;
 			color: #222;
 			line-height: 22px;
+			padding: 1px 6px 3px;
+		}
+		.contain-languages a:hover {
+			background: #F9F9F9;
+		}
+		.lang-current {
+			padding: 3px 6px;
+			background: #F2F2F2;
+			display: inline-block;
 		}
 		/***/
 		.icon {
@@ -171,14 +213,10 @@ function generate_footer() {
     	</div> <?php
 	} ?>
 
-	<a href="https://www.f5sites.com/startups-navigator/" class="alogo" data-toggle='popover' data-placement='bottom' title="F5 Sites Startups Navigator" data-trigger='hover' data-content="Portuguese: Navegador de Startups F5 Sites"><img src='<?php echo plugins_url( "f5sites.com-logo.png", __FILE__ ); ?>' alt="F5 Sites" /></a>
+
 	
 	<span class="showed-links hidden-xs d-none d-sm-block">
-		<?php if(function_exists("smartlang_generate_flag_links_current")) {
-			smartlang_generate_flag_links_current(false);
-		} else { ?>
-			<img src="<?php echo plugins_url("assets/br.png",__FILE__);?>" style="display: inline;" alt="br">
-		<?php } ?>
+		
 		<?php fore($all_startups);	?>
 	</span>
 	
@@ -214,8 +252,17 @@ function generate_footer() {
 
 	<?php if(function_exists('smartlang_show_lang_options')) { ?>
 		<div class="contain-languages pull-right">
+			<span class="lang-current">
+				<?php if(function_exists("smartlang_generate_flag_links_current")) {
+					smartlang_generate_flag_links_current(false);
+				} else { ?>
+					<img src="<?php echo plugins_url("assets/br.png",__FILE__);?>" style="display: inline;" alt="br">
+				<?php } ?>
+			</span>
 			<?php smartlang_show_lang_options(true); ?>
 		</div>
+	<?php } else { ?>
+		<img src="<?php echo plugins_url("assets/br.png",__FILE__);?>" style="display: inline;" alt="br">
 	<?php } ?>
 
 
@@ -234,15 +281,11 @@ function generate_footer() {
 		})
 	</script>
 	<?php
+	}
 }
 
 function fore($names_links_array) {
-	#STYLES	
 	$s=$_SERVER['HTTP_HOST'];
-	#$names_links_array = $all_startups;
-	#$s = 
-	#echo $s;
-	#var_dump($names_links_array);
 	$i=0;
 	foreach ($names_links_array as $item) :
 		$ns=$nt=$ntp='';
