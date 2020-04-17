@@ -24,13 +24,13 @@ function generate_f5sites_bar() { ?>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 	
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-f5sites-bar">
 		<a href="https://www.f5sites.com/startups-navigator/" class="alogo navbar-brand" data-toggle='popover' data-placement='bottom' title="F5 Sites Startups Navigator" data-trigger='hover' data-content="Portuguese: Navegador de Startups F5 Sites"><img src='<?php echo plugins_url( "f5sites.com-logo.png", __FILE__ ); ?>' alt="F5 Sites" /></a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarF5links" aria-controls="navbarF5links" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<div class="collapse navbar-collapse" id="navbarF5links">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item dropdown <?php check("f5sites.com"); ?>">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-placement="bottom" data-trigger="hover" data-content="Hosting and professional development for companies" data-original-title="Hospedagem e desenvolvimento profissional para empresas">F5 Sites <!--span class="caret"></span--></a>
@@ -56,11 +56,18 @@ function generate_f5sites_bar() { ?>
 					</div>
 				</li>
 
+				<li class="nav-item dropdown <?php check('franciscomat.com', 'active'); check('focalizador.com', 'active'); check('projectimer.com', 'active'); ?>">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" data-toggle="dropdown" data-placement="bottom" data-trigger="hover">Time Track <!--span class="caret"></span--></a>
+					
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+						<a class="dropdown-item" href="https://www.Pomodoros.com.br/" class="nav-link" data-toggle="popover" data-placement="bottom" title="" data-trigger="hover" data-content="Online time tracker for projects" data-original-title="App para medir tempo de projetos">Pomodoros</a>
+						<a class="dropdown-item" href="https://www.focalizador.com.br/">Focalizador</a>
+						<a class="dropdown-item" href="https://www.projectimer.com/">Projectimer</a>
+					</div>
+				</li>
+
 				<li class="nav-item <?php check('cursowp.com.br', 'active'); ?>">
 					<a href="https://www.cursowp.com.br" class="nav-link" data-toggle="popover" data-placement="bottom" title="" data-trigger="hover" data-content="WordPress course for brazilian market" data-original-title="Curso de WordPress para programadores">CursoWP</a>
-				</li>
-				<li class="nav-item <?php check('pomodoros.com.br', 'active'); ?>">
-					<a href="https://www.pomodoros.com.br" class="nav-link" data-toggle="popover" data-placement="bottom" title="" data-trigger="hover" data-content="Online time tracker for projects" data-original-title="App para medir tempo de projetos">Pomodoros</a>
 				</li>
 				<li class="nav-item <?php check('treinamentoemfoco.com.br', 'active'); ?>">
 					<a href="https://www.treinamentoemfoco.com.br" class="nav-link" data-toggle="popover" data-placement="bottom" title="" data-trigger="hover" data-content="Focus Training: You and your team more productive than ever" data-original-title="Treinamentom em Foco: Você e seu time mais produtivos do que nunca">Treinamento em Foco</a>
@@ -275,6 +282,16 @@ function generate_f5sites_bar() { ?>
 			*/
 	</script>
 	<style type="text/css">
+		.navbar-f5sites-bar {
+			height: 40px;
+			background: #E6E6E6 !important;
+		}
+		.navbar-brand img {
+			max-width: 90px;
+		}
+		/*#navbarF5links {
+			padding-top: 2px;
+		}*/
 		.dropdown-langs a {
 			display: inline-block;
 			width: 100%;
