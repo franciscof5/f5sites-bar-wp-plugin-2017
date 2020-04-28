@@ -11,7 +11,7 @@ Tags: mu-plugins, notice bars */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-if(gethostname()!="f5sites_linode_0" && ($_SERVER['SERVER_ADDR']!="45.33.113.61")) {
+if(gethostname()!="05de832e2373" && ($_SERVER['SERVER_ADDR']!="45.33.113.61")) {
 	if(!strpos($_SERVER["HTTP_HOST"], "franciscomat") && (!strpos($_SERVER["HTTP_HOST"], "focalizador")))
 	add_action("wp_head", "generate_f5sites_bar", 12, 2);
 	add_action('wp_enqueue_scripts', 'load_scritps_f5sites_bar');
