@@ -11,15 +11,17 @@ Tags: mu-plugins, notice bars */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-
-add_action("wp_head", "generate_f5sites_bar", 12, 2);
-add_action('wp_enqueue_scripts', 'load_scritps_f5sites_bar');
-//add_action("wp_footer", "generate_f5sites_bar", 12, 2);
+if(gethostname()!="f5sites_linode_0" && ($_SERVER['SERVER_ADDR']!="45.33.113.61")) {
+	if(!strpos($_SERVER["HTTP_HOST"], "franciscomat") && (!strpos($_SERVER["HTTP_HOST"], "focalizador")))
+	add_action("wp_head", "generate_f5sites_bar", 12, 2);
+	add_action('wp_enqueue_scripts', 'load_scritps_f5sites_bar');
+	//add_action("wp_footer", "generate_f5sites_bar", 12, 2);
+}
 
 function generate_f5sites_bar() { ?>
 	<?php 
 	/*-*/ ?>
-	<?php if(!strpos($_SERVER["HTTP_HOST"], "franciscomat")) { ?>
+	<?php if(!strpos($_SERVER["HTTP_HOST"], "franciscomat") && (!strpos($_SERVER["HTTP_HOST"], "focalizador"))) { ?>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<?php } ?>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -59,12 +61,12 @@ function generate_f5sites_bar() { ?>
 				</li>
 
 				<li class="nav-item dropdown <?php check('franciscomat.com', 'active'); check('focalizador.com', 'active'); check('projectimer.com', 'active'); ?>">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" data-toggle="dropdown" data-placement="bottom" data-trigger="hover">Time Track <!--span class="caret"></span--></a>
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" data-toggle="dropdown" data-placement="bottom" data-trigger="hover">Projectimer <!--span class="caret"></span--></a>
 					
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+						<a class="dropdown-item" href="https://www.projectimer.com/">Projectimer</a>
 						<a class="dropdown-item" href="https://www.Pomodoros.com.br/" class="nav-link" data-toggle="popover" data-placement="bottom" title="" data-trigger="hover" data-content="Online time tracker for projects" data-original-title="App para medir tempo de projetos">Pomodoros</a>
 						<a class="dropdown-item" href="https://www.focalizador.com.br/">Focalizador</a>
-						<a class="dropdown-item" href="https://www.projectimer.com/">Projectimer</a>
 					</div>
 				</li>
 
