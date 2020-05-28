@@ -11,25 +11,30 @@ Tags: mu-plugins, notice bars */
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-if(gethostname()!="05de832e2373" && ($_SERVER['SERVER_ADDR']!="45.33.113.61")) {
-	if(!strpos($_SERVER["HTTP_HOST"], "franciscomat") && (!strpos($_SERVER["HTTP_HOST"], "focalizador")))
-	add_action("wp_head", "generate_f5sites_bar", 12, 2);
+#if(gethostname()!="05de832e2373" && ($_SERVER['SERVER_ADDR']!="45.33.113.61")) {
+	#if(strpos($_SERVER["HTTP_HOST"], "franciscomat") || (strpos($_SERVER["HTTP_HOST"], "focalizador")))
+	#	add_action("wp_footer", "generate_f5sites_bar", 12, 2);
+	#else
+		add_action("wp_head", "generate_f5sites_bar", 12, 2);
+	#
 	add_action('wp_enqueue_scripts', 'load_scritps_f5sites_bar');
-	//add_action("wp_footer", "generate_f5sites_bar", 12, 2);
-}
+#}
 
 function generate_f5sites_bar() { ?>
 	<?php 
-	/*-*/ ?>
+	/*-
 	<?php if(!strpos($_SERVER["HTTP_HOST"], "franciscomat") && (!strpos($_SERVER["HTTP_HOST"], "focalizador"))) { ?>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<?php } ?>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	*/ ?>
+
 	
 	<nav class="navbar navbar-expand-md navbar-light bg-light navbar-f5sites-bar">
 		<a href="https://www.f5sites.com/" class="alogo navbar-brand" data-toggle='popover' data-placement='bottom' title="F5 Sites Startups Navigator" data-trigger='hover' data-content="Portuguese: Navegador de Startups F5 Sites"><img src='<?php echo plugins_url( "f5sites.com-logo.png", __FILE__ ); ?>' alt="F5 Sites" /></a>
+		<?php /*
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarF5links" aria-controls="navbarF5links" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -37,31 +42,32 @@ function generate_f5sites_bar() { ?>
 		<div class="collapse navbar-collapse" id="navbarF5links">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item dropdown <?php check("f5sites.com"); ?>">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-placement="bottom" data-trigger="hover" data-content="Hosting and professional development for companies" data-original-title="Hospedagem e desenvolvimento profissional para empresas">F5 Sites <!--span class="caret"></span--></a>
+					<a class="nav-link dropdown-toggleCONFCLIT" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-placement="bottom" data-trigger="hover" data-content="Hosting and professional development for companies" data-original-title="Hospedagem e desenvolvimento profissional para empresas">Fnetwork <span class="caret"></span></a>
 					<?php #check("f5sites.com", "current"); ?>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="https://www.f5sites.com/">F5 Sites</a>
 						<!--li role="separator" class="divider"></li-->
 						<a class="dropdown-item" href="https://source.f5sites.com/">Source</a>
-						<a class="dropdown-item" href="https://projects.f5sites.com/">Projects</a>
-						<a class="dropdown-item" href="https://hortical.f5sites.com/">Eco</a>
+						<!--a class="dropdown-item" href="https://projects.f5sites.com/">Projects</a-->
+						<a class="dropdown-item" href="https://hortical.f5sites.com/">Hortical</a>
 						<!--li role="separator" class="divider"></li-->
 						<a class="dropdown-item" href="https://pesquisa.f5sites.com/">Pesquisa</a>
 					</div>
 				</li>
 
-				<li class="nav-item dropdown <?php check('franciscomat.com', 'active'); ?>">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" data-toggle="dropdown" data-placement="bottom" data-trigger="hover" data-content="Blog of CEO and dev Francisco mat" data-original-title="Blog do CEO e dev Francisco Mat">Francisco Mat <!--span class="caret"></span--></a>
+				<li class="nav-item dropdown <?php check('franciscomat.com', 'active'); check('franciscomatelli.com.br', 'active'); ?>">
+					<a class="nav-link dropdown-toggleCONFCLIT" href="#" id="navbarDropdown2" data-toggle="dropdown" data-placement="bottom" data-trigger="hover" data-content="Blog of CEO and dev Francisco mat" data-original-title="Blog do CEO e dev Francisco Mat">Francisco Matelli <span class="caret"></span></a>
 					<?php #check("franciscomat.com", "current"); ?>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-						<a class="dropdown-item" href="https://www.franciscomat.com/">Francisco Mat</a>
+						<a class="dropdown-item" href="https://www.franciscomat.com/">Blogs</a>
 						<a class="dropdown-item" href="https://portfolio.franciscomat.com/">Portfolio</a>
+						<a class="dropdown-item" href="https://www.franciscomatelli.com.br/">Blog UX/UI </a>
 						<a class="dropdown-item" href="https://pensamentos.franciscomat.com/">Pensamentos</a>
 					</div>
 				</li>
 
-				<li class="nav-item dropdown <?php check('franciscomat.com', 'active'); check('focalizador.com', 'active'); check('projectimer.com', 'active'); ?>">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" data-toggle="dropdown" data-placement="bottom" data-trigger="hover">Projectimer <!--span class="caret"></span--></a>
+				<li class="nav-item dropdown <?php check('focalizador.com', 'active'); check('projectimer.com', 'active'); ?>">
+					<a class="nav-link dropdown-toggleCONFCLIT" href="#" id="navbarDropdown3" data-toggle="dropdown" data-placement="bottom" data-trigger="hover">Aplicativos <span class="caret"></span></a>
 					
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown3">
 						<a class="dropdown-item" href="https://www.projectimer.com/">Projectimer</a>
@@ -70,12 +76,13 @@ function generate_f5sites_bar() { ?>
 					</div>
 				</li>
 
-				<li class="nav-item <?php check('cursowp.com.br', 'active'); ?>">
-					<a href="https://www.cursowp.com.br" class="nav-link" data-toggle="popover" data-placement="bottom" title="" data-trigger="hover" data-content="WordPress course for brazilian market" data-original-title="Curso de WordPress para programadores">CursoWP</a>
-				</li>
-				<li class="nav-item <?php check('treinamentoemfoco.com.br', 'active'); ?>">
-					<a href="https://www.treinamentoemfoco.com.br" class="nav-link" data-toggle="popover" data-placement="bottom" title="" data-trigger="hover" data-content="Focus Training: You and your team more productive than ever" data-original-title="Treinamentom em Foco: Você e seu time mais produtivos do que nunca">Treinamento em Foco</a>
-					<?php #check("treinamentoemfoco.com.br", "current"); ?>
+				<li class="nav-item dropdown <?php check('cursowp.com.br', 'active'); check('treinamentoemfoco.com.br', 'active'); ?>">
+					<a class="nav-link dropdown-toggleCONFCLIT" href="#" id="navbarDropdown4" data-toggle="dropdown" data-placement="bottom" data-trigger="hover" data-content="" data-original-title="">Cursos <span class="caret"></span></a>
+					<?php #check("franciscomat.com", "current"); ?>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown4">
+						<a href="https://www.cursowp.com.br" class="dropdown-item" data-toggle="popover" data-placement="bottom" title="" data-trigger="hover" data-content="WordPress course for brazilian market" data-original-title="Curso de WordPress para programadores">Curso de WordPress</a>
+						<a href="https://www.treinamentoemfoco.com.br" class="dropdown-item" data-toggle="popover" data-placement="bottom" title="" data-trigger="hover" data-content="Focus Training: You and your team more productive than ever" data-original-title="Treinamentom em Foco: Você e seu time mais produtivos do que nunca">Treinamento em Foco</a>
+					</div>
 				</li>
 			</ul>
 			<ul class="navbar-nav">
@@ -100,7 +107,7 @@ function generate_f5sites_bar() { ?>
 							<li>
 								<?php smartlang_show_lang_options(true, true); ?>
 							</li>
-						</div> */ ?>
+						</div> * ?>
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 							<?php if(function_exists("smartlang_generate_flag_links_current")) {
 								smartlang_generate_flag_links_current(false);
@@ -119,8 +126,9 @@ function generate_f5sites_bar() { ?>
 
 					<li class="nav-item">
 						<a href="#">
-						<?php
-							if(!class_exists("WC_Geolocation") || !isset($location)) { ?>
+						*/ ?> 
+						<span style="position: absolute;right: 0;font-size: 0.8rem;">
+							<?php if(!class_exists("WC_Geolocation") || !isset($location)) { ?>
 							<script type="text/javascript">
 								jQuery( document ).ready(function() {
 									jQuery.get("https://ipinfo.io?token=e7e9316dfdc5fa", function (response) {
@@ -136,7 +144,7 @@ function generate_f5sites_bar() { ?>
 							</script>
 						
 						<?php } ?>
-						<img src="<?php echo plugins_url('assets/location-icon-map-png-location-24-128.png', __FILE__) ?>"  alt="Loc:" style="float: left; margin-top: 3px;">
+						<img src="<?php echo plugins_url('assets/location-icon-map-png-location-24-128.png', __FILE__) ?>"  alt="Loc:" style="float: left;">
 						<span id="user_location_city"></span>
 						<span id="user_location_region"></span>
 						<span id="user_location_country">
@@ -146,12 +154,15 @@ function generate_f5sites_bar() { ?>
 								echo "Unkown location";
 							?>
 						</span>
+						</span>
+						<?php /*
 						</a>
 					</li>
 					
 					
 				</ul>
 		</div>
+		*/ ?>
 	</nav>
 	
 	<?php /* ?>
@@ -271,7 +282,7 @@ function generate_f5sites_bar() { ?>
 		</div><!-- /.container-fluid 
 		REFERENCE: https://getbootstrap.com/docs/3.4/components/#navbar-default	-->
 	</nav>
-	<?php /**/ ?>
+	<?php / ?>
 	<script type="text/javascript">
 		/*jQuery(function () {
 			jQuery('[data-toggle="popover"]').popover();
@@ -283,19 +294,41 @@ function generate_f5sites_bar() { ?>
 				jQuery(".aditional-links").hide(200);
 			});
 		})
-			*/
 	</script>
+	*/ ?>
 	<style type="text/css">
+		.dropdown:hover>.dropdown-menu {
+			display: block;
+		}
+		.dropdown-menu {
+			top:96%;
+			border-top-right-radius: 0;
+			border-top-left-radius: 0;
+			border-top:none;
+		}
+		.navbar-brand {
+			padding: 0;
+			margin: 0;
+			font-size: 1rem;
+		}
+		.navbar-brand img {
+			height: 24px;
+		}
 		.navbar-f5sites-bar {
-			/*height: 40px;*/
 			background: #E6E6E6 !important;
 			padding: 0 1rem;
+			z-index: 9999;
+		}
+		#navbarF5links {
+			padding-top: 2px;
+			background: #E6E6E6;
 		}
 		#navbarF5links > ol,
 		#navbarF5links > ul {
 			margin-left: 0 !important;
+			margin-top: 0 !important;
 		}
-		.navbar-brand img {
+		.navbar-f5sites-bar img {
 			max-width: 70px;
 		}
 		.navbar-toggler {
@@ -303,10 +336,19 @@ function generate_f5sites_bar() { ?>
 			margin-top: -4px;
 			background: transparent !important;
 		}
-		#navbarF5links {
-			padding-top: 2px;
-			background: #E6E6E6;
-			z-index: 99;
+		.navbar-toggler:hover {
+			background: #09d;
+			color: #FFF !important;
+		}
+		.nav-link {
+			font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+			font-size: 1rem !important;
+		}
+		.nav-link a {
+			font-size: 1rem !important;
+		}
+		li.active > a {
+			color: #0056b3 !important;
 		}
 		.dropdown-langs a {
 			display: inline-block;
@@ -316,6 +358,9 @@ function generate_f5sites_bar() { ?>
 		.dropdown-langs a img {
 			float: left;
 			padding: 3px 6px;
+		}
+		.dropdown-item {
+			color: #212529 !important;
 		}
 		.f5sites-bar {
 			font-family: open_sansregular,sans-serif;
@@ -349,12 +394,11 @@ function check($check, $type="active") {
 }
 
 function load_scritps_f5sites_bar() {
-	/*wp_enqueue_script('footerjs', plugins_url('/assets/bootstrap.min.js', __FILE__), '', time() );
-	wp_enqueue_style('footercss', plugins_url('/assets/bootstrap-theme.min.css', __FILE__), '', time() );
-	wp_enqueue_style('footercss', plugins_url('/assets/bootstrap.min.css', __FILE__), '', time() );*/
+	wp_enqueue_script('footerjs', plugins_url('/assets/bootstrap.min.js', __FILE__), '', time() );
+	#wp_enqueue_style('footercss', plugins_url('/assets/bootstrap-theme.min.css', __FILE__), '', time() );
+	wp_enqueue_style('footercss', plugins_url('/assets/bootstrap.min.css', __FILE__), '', time() );
 	
 	#wp_enqueue_style('fontcss', plugins_url('/assets/font.css', __FILE__), '', time() );
-	
 	#wp_enqueue_style('bootstrap4', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css');
 	#wp_enqueue_script( 'boot1','https://code.jquery.com/jquery-3.3.1.slim.min.js', array('jquery'));
   	#wp_enqueue_script( 'boot2','https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array('jquery'));
