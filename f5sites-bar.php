@@ -15,11 +15,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 	#if(strpos($_SERVER["HTTP_HOST"], "franciscomat") || (strpos($_SERVER["HTTP_HOST"], "focalizador")))
 	#	add_action("wp_footer", "generate_f5sites_bar", 12, 2);
 	#else
+	if( !strpos($_SERVER['SERVER_NAME'], "pomodoros.com.br") && !strpos($_SERVER['SERVER_NAME'], "focalizador.com.br") && !strpos($_SERVER['SERVER_NAME'], "projectimer.com")
+	) {
 		add_action("wp_head", "generate_f5sites_bar", 12, 2);
-	#
-	add_action('wp_enqueue_scripts', 'load_scritps_f5sites_bar');
+		add_action('wp_enqueue_scripts', 'load_scritps_f5sites_bar');
+	}
 #}
+function load_scritps_f5sites_bar() {
+	wp_enqueue_script('footerjs', plugins_url('/assets/bootstrap.min.js', __FILE__), '', time() );
+	#wp_enqueue_style('footercss', plugins_url('/assets/bootstrap-theme.min.css', __FILE__), '', time() );
+	wp_enqueue_style('footercss', plugins_url('/assets/bootstrap.min.css', __FILE__), '', time() );
+	
+	#wp_enqueue_style('fontcss', plugins_url('/assets/font.css', __FILE__), '', time() );
+	#wp_enqueue_style('bootstrap4', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css');
+	#wp_enqueue_script( 'boot1','https://code.jquery.com/jquery-3.3.1.slim.min.js', array('jquery'));
+  	#wp_enqueue_script( 'boot2','https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array('jquery'));
+  	#wp_enqueue_script( 'boot2','https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js', array('jquery'));
 
+}
 function generate_f5sites_bar() { ?>
 	<?php 
 	/*-
@@ -393,18 +406,7 @@ function check($check, $type="active") {
 	}
 }
 
-function load_scritps_f5sites_bar() {
-	wp_enqueue_script('footerjs', plugins_url('/assets/bootstrap.min.js', __FILE__), '', time() );
-	#wp_enqueue_style('footercss', plugins_url('/assets/bootstrap-theme.min.css', __FILE__), '', time() );
-	wp_enqueue_style('footercss', plugins_url('/assets/bootstrap.min.css', __FILE__), '', time() );
-	
-	#wp_enqueue_style('fontcss', plugins_url('/assets/font.css', __FILE__), '', time() );
-	#wp_enqueue_style('bootstrap4', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css');
-	#wp_enqueue_script( 'boot1','https://code.jquery.com/jquery-3.3.1.slim.min.js', array('jquery'));
-  	#wp_enqueue_script( 'boot2','https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array('jquery'));
-  	#wp_enqueue_script( 'boot2','https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js', array('jquery'));
 
-}
 /*
 	$under_development = array(
 		#["LOJASDOMAGO", "www.f5sites.com/startups-brasil/lojasdomago", "Brazilian online store for costumer goods", "Loja de brindes produtos eletrônicos", "www.lojasdomago.com.br"],
